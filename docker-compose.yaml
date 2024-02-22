@@ -1,0 +1,11 @@
+version: '3.9'
+services:
+  db: 
+    image: postgres:latest
+    ports:
+      - "5432:5432"
+    env_file:
+      - .env
+    volumes:
+      - /data/pg/data:/var/lib/postgressql/data
+      - /data/pg/config:/etc/postgressql/data
