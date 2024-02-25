@@ -1,7 +1,8 @@
-require('dotenv').config();
-const express = require('express');
+import express from "express"
 const bodyParser = require('body-parser');
-const routes = require('./src/api/routes');
+import routes from "./api/routes"
+import * as dotenv from "dotenv"
+dotenv.config()
 
 const app = express();
 const port = process.env.API_PORT || 3000;
