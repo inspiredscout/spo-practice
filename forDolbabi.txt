@@ -1,4 +1,7 @@
-docker compose up -d --force-recreate
-pnpm add -D prisma
+docker compose up -d --force-recreate\
+pnpm i @nestjs/cli
+pnpm install typescript 
+pnpm i -D prisma
 pnpm prisma init
-pnpm prisma studio
+prisma generate
+prisma studio
