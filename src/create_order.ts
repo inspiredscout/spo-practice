@@ -18,7 +18,10 @@ export async function create_order(req: Request, res: Response) {
             })),
           },
         },
-      });
+        include: {
+          orderItems: true,
+        
+      }});
     
-      res.json({ success: true, newOrder });
+      return res.json({ success: true, newOrder });
     }

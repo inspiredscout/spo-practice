@@ -1,12 +1,13 @@
-const express = require('express');
-const createOrder = require('../create_order');
-const test = require('../test');
+import express, { Request, Response } from "express"
+import { create_order } from "../create_order";
+import { test } from "../test";
+import { test2 } from "../test2";
 
 const router = express.Router();
 
-router.post('/api/create_order', (req: Request, res: Response) => {
+router.post('/api/create_order', async (req: Request, res: Response) => {
     // Обработка запроса для create_order
-    createOrder(req, res);
+    return create_order(req, res);
 });
 
 router.get('/api/test', (req: Request, res: Response) => {
@@ -14,4 +15,8 @@ router.get('/api/test', (req: Request, res: Response) => {
     test(req, res);
 });
 
+router.get('/api/test2', (req: Request, res: Response) => {
+    // Обработка запроса для test
+    test2(req, res);
+});
 export default router;
