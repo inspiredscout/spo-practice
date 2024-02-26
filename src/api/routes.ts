@@ -6,6 +6,7 @@ import { checkOrder } from "./scripts/checkOrder";
 import { addProduct } from "./scripts/addProduct";
 import { getAllProduct } from "./scripts/getAllProduct";
 import { getProduct } from "./scripts/getProduct";
+import { superGetAllProduct } from "./scripts/superGetAllProduct";
 
 const router = express.Router();
 
@@ -35,5 +36,9 @@ router.get('/api/getAllProduct', (req: Request, res: Response) => {
 
 router.get('/api/getProduct', (req: Request, res: Response) => {
     getProduct(req,res);
+})
+
+router.get('/api/superGetAllProduct', (req: Request, res: Response) => {
+    superGetAllProduct(req,res);
 })
 export default router;

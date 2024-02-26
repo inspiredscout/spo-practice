@@ -19,7 +19,8 @@ export async function addProduct(req: Request, res: Response) {
           type: productData.type,
           country: productData.country,
           color: productData.color,
-          brand: productData.brand
+          brand: productData.brand,
+          visibility: productData.visibility,
 
       }
     });

@@ -15,6 +15,7 @@ export async function getProduct(req: Request, res: Response) {
             {country : rqst.country},
             {color : rqst.color},
             {brand : rqst.brand},
+            {visibility : rqst.visibility},
             ],
         },
         include: {

@@ -8,7 +8,8 @@ export async function getAllProduct(req: Request, res: Response) {
         where:{
             name: {
                 not: null,
-            }
+            },
+            visibility: true,
         },
         include: {
             photos: true

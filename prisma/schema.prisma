@@ -19,6 +19,7 @@ model Products {
   color String?
   brand String?
   orderItems OrderItem[]
+  visibility Boolean @default(true)
 }
 
 model Photos {
