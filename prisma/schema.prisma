@@ -35,6 +35,7 @@ model Order {
   customerEmail String
   customerPhone String
   customerAdress String
+  status String
   orderItems   OrderItem[]
 }
 
