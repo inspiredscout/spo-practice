@@ -1,6 +1,6 @@
-import { db } from './db'
+import { db } from '../../db'
 import { Router, Request, Response } from 'express';
-import routes from './api/routes';
+import routes from '../routes';
 export async function createOrder(req: Request, res: Response) {
     const orderData = req.body
     const newOrder = await db?.order.create({

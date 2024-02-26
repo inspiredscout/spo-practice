@@ -1,6 +1,6 @@
-import { db } from './db'
+import { db } from '../../db'
 import { Router, Request, Response } from 'express';
-import routes from './api/routes';
+import routes from '../routes';
 
 export async function checkOrder(req: Request, res: Response) {
     const Order = req.body

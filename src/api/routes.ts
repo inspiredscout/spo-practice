@@ -1,8 +1,8 @@
 import express, { Request, Response } from "express"
-import { createOrder } from "../createOrder";
-import { test } from "../test";
-import { test2 } from "../test2";
-import { checkOrder } from "../checkOrder";
+import { createOrder } from "./scripts/createOrder";
+import { test } from "./scripts/test";
+import { test2 } from "./scripts/test2";
+import { checkOrder } from "./scripts/checkOrder";
 
 const router = express.Router();
 
