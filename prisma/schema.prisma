@@ -22,7 +22,7 @@ model Products {
 }
 
 model Photos {
-  id String @id @unique
+  id Int @id @unique @default(autoincrement())
   product Products? @relation(fields: [photoId], references: [id])
   photoId Int
   url String
