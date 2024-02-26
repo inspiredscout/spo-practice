@@ -1,14 +1,14 @@
 import express, { Request, Response } from "express"
-import { create_order } from "../create_order";
+import { createOrder } from "../createOrder";
 import { test } from "../test";
 import { test2 } from "../test2";
 import { checkOrder } from "../checkOrder";
 
 const router = express.Router();
 
-router.post('/api/create_order', async (req: Request, res: Response) => {
+router.post('/api/createOrder', async (req: Request, res: Response) => {
     // Обработка запроса для create_order
-    return create_order(req, res);
+    return createOrder(req, res);
 });
 
 router.get('/api/test', (req: Request, res: Response) => {

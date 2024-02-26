@@ -1,7 +1,7 @@
 import { db } from './db'
 import { Router, Request, Response } from 'express';
 import routes from './api/routes';
-export async function create_order(req: Request, res: Response) {
+export async function createOrder(req: Request, res: Response) {
     const orderData = req.body
     const newOrder = await db?.order.create({
         data: {
@@ -9,6 +9,7 @@ export async function create_order(req: Request, res: Response) {
           customerEmail: orderData.customerEmail,
           customerPhone: orderData.customerPhone,
           customerAdress: orderData.customerAddress,
+          status: orderData.status,
           orderItems: {
             create: orderData.orderItems.map((item: { quantity: any; productId: any; }) => ({
               quantity: item.quantity,
