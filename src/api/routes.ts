@@ -4,6 +4,8 @@ import { test } from "./scripts/test";
 import { test2 } from "./scripts/test2";
 import { checkOrder } from "./scripts/checkOrder";
 import { addProduct } from "./scripts/addProduct";
+import { getAllProduct } from "./scripts/getAllProduct";
+import { getProduct } from "./scripts/getProduct";
 
 const router = express.Router();
 
@@ -26,4 +28,12 @@ router.get('/api/checkOrder', (req: Request, res: Response) => {
 router.post('/api/addProduct', (req: Request, res: Response) => {
     addProduct(req,res);
 });
+
+router.get('/api/getAllProduct', (req: Request, res: Response) => {
+    getAllProduct(req,res);
+})
+
+router.get('/api/getProduct', (req: Request, res: Response) => {
+    getProduct(req,res);
+})
 export default router;
