@@ -9,3 +9,11 @@ services:
     volumes:
       - /data/pg/data:/var/lib/postgressql/data
       - /data/pg/config:/etc/postgressql/data
+
+  backend:
+    build:
+      context: .
+      dockerfile: ./Dockerfile
+    env_file:
+      - .env
+    
