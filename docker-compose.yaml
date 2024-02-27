@@ -9,6 +9,12 @@ services:
     volumes:
       - /data/pg/data:/var/lib/postgressql/data
       - /data/pg/config:/etc/postgressql/data
+    healthcheck:
+      test: ["CMD", "pg_isready"]
+      interval: 30s
+      timeout: 10s
+      retries: 5
+      start_period: 15s
 
   backend:
     build:
@@ -16,4 +22,8 @@ services:
       dockerfile: ./Dockerfile
     env_file:
       - .env
+    depends_on:
+      db:
+        condition: services_healthy
+
     
