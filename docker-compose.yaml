@@ -24,6 +24,4 @@ services:
       - .env
     depends_on:
       db:
-        condition: services_healthy
-
-    
+        condition: service_healthy
