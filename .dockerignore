@@ -1,6 +1,5 @@
 /node_modules
 /prisma/migrations
-.env
 README.md 
 package-lock.json
 pnpm-lock.yaml
