@@ -25,7 +25,7 @@ model Products {
 model Photos {
   id Int @id @unique @default(autoincrement())
   product Products? @relation(fields: [photoId], references: [id])
-  photoId Int
+  photoId Int?
   url String
 }
 
