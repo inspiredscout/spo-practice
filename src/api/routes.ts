@@ -7,6 +7,8 @@ import { addProduct } from "./scripts/addProduct";
 import { getAllProduct } from "./scripts/getAllProduct";
 import { getProduct } from "./scripts/getProduct";
 import { superGetAllProduct } from "./scripts/superGetAllProduct";
+import { updateOrderStatus } from "./scripts/updateOrdedStatus";
+import { updateProductVisibility } from "./scripts/updateProductVisibility";
 
 const router = express.Router();
 
@@ -40,5 +42,13 @@ router.get('/api/getProduct', (req: Request, res: Response) => {
 
 router.get('/api/superGetAllProduct', (req: Request, res: Response) => {
     superGetAllProduct(req,res);
+})
+
+router.put('/api/updateOrderStatus', (req: Request, res: Response) => {
+    updateOrderStatus(req,res);
+})
+
+router.put('/api/updateProductVisibility', (req: Request, res: Response) => {
+    updateProductVisibility(req,res);
 })
 export default router;
