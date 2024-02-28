@@ -14,7 +14,7 @@ model Products {
   price String?
   photos Photos[]
   description String?
-  type String
+  type String?
   country String?
   color String?
   brand String?

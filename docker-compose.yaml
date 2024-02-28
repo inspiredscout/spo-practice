@@ -7,8 +7,8 @@ services:
     env_file:
       - .env
     volumes:
-      - /data/pg/data:/var/lib/postgressql/data
-      - /data/pg/config:/etc/postgressql/data
+      - ./data/pg/data:/var/lib/postgressql/data
+      - ./data/pg/config:/etc/postgressql/data
     healthcheck:
       test: ["CMD", "pg_isready"]
       interval: 30s
