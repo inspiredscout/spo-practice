@@ -8,7 +8,7 @@
 3. Открываем репу где угодно (vs Code/Web Storm)
 4. создаем .env на подобии .env.template там можно поменять порт и тд
 5. Пишем в консоль pnpm Install (можно и другой хуйне но сырник советовал pnpm поэтому качай его)
-6. Пишем вот ето docker compose up -d --force-recreate\
+6. Пишем вот ето docker compose up -d --force-recreate
 7. пишем ето pnpm prisma generate чтоб бдшка запустилась
 8. пишем pnpm prisma studio чтоб смотреть и редачить бдшку с нормальным GUI
 9. чтоб запустить этого монстра пишем pnpm dev
