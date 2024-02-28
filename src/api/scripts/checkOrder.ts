@@ -3,6 +3,7 @@ import { Router, Request, Response } from 'express';
 import routes from '../routes';
 
 export async function checkOrder(req: Request, res: Response) {
+    try{
     const Order = req.body
     const findOrder = await db?.order.findMany({
         where: {
@@ -22,4 +23,8 @@ export async function checkOrder(req: Request, res: Response) {
     else {
         return res.json({success: true, findOrder})
     }
+} catch (error) {
+    console.error('Error adding product:', error);
+    return res.status(500).json({ success: false, error: 'Бекендер еблан, тестер еще тупее' });
+}
 }

@@ -2,6 +2,7 @@ import { db } from '../../db'
 import { Router, Request, Response } from 'express';
 import routes from '../routes';
 export async function createOrder(req: Request, res: Response) {
+  try {
     const orderData = req.body
     const newOrder = await db?.order.create({
         data: {
@@ -25,4 +26,8 @@ export async function createOrder(req: Request, res: Response) {
       }});
     
       return res.json({ success: true, newOrder });
+    } catch (error) {
+      console.error('Error adding product:', error);
+      return res.status(500).json({ success: false, error: 'Бекендер еблан, тестер еще тупее' });
+  }
     }

@@ -3,6 +3,7 @@ import { Router, Request, Response } from 'express';
 import routes from '../routes';
 
 export async function updateProductVisibility(req: Request, res: Response) {
+    try {
     const { productId, newVisibility } = req.body;
     if (typeof newVisibility !== 'boolean') {
         return res.status(400).json({ success: false, error: 'newVisibility должно быть булевым значением' });
@@ -20,5 +21,9 @@ export async function updateProductVisibility(req: Request, res: Response) {
         }
 })
     return res.json({success: true, updatedProduct})
+} catch (error) {
+    console.error('Error adding product:', error);
+    return res.status(500).json({ success: false, error: 'Бекендер еблан, тестер еще тупее' });
+}
     
 }

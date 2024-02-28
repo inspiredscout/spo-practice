@@ -3,6 +3,7 @@ import { Router, Request, Response } from 'express';
 import routes from '../routes';
 
 export async function updateProduct(req: Request, res: Response) {
+    try {
     const rqst = req.body
     const rqstPhotos = rqst.photos
     const product = await db?.products.update({
@@ -49,4 +50,8 @@ export async function updateProduct(req: Request, res: Response) {
         return res.json({ message: 'Такого товара у нас нет', success: false });
     } else {
         return res.json({ success: true, product });}
+    } catch (error) {
+        console.error('Error adding product:', error);
+        return res.status(500).json({ success: false, error: 'Бекендер еблан, тестер еще тупее' });
+    }
 }

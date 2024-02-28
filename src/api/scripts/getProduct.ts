@@ -3,6 +3,7 @@ import { Router, Request, Response } from 'express';
 import routes from '../routes';
 
 export async function getProduct(req: Request, res: Response) {
+    try{
     const rqst = req.body
     const product = await db?.products.findMany({
         where: {
@@ -26,4 +27,8 @@ export async function getProduct(req: Request, res: Response) {
     else {
         return res.json({success: true, product})
     }
+} catch (error) {
+    console.error('Error adding product:', error);
+    return res.status(500).json({ success: false, error: 'Бекендер еблан, тестер еще тупее' });
+}
 }
