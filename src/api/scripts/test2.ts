@@ -1,5 +1,4 @@
-import { Router, Request, Response } from 'express';
-import routes from '../routes';
+import { Request, Response } from 'express';
 
 export async function test2(req: Request , res: Response) {
     

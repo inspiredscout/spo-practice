@@ -1,6 +1,5 @@
 import { db } from '../../db'
-import { Router, Request, Response } from 'express';
-import routes from '../routes';
+import { Request, Response } from 'express';
 
 export async function superGetAllProduct(req: Request, res: Response) {
     const reqst = req.body

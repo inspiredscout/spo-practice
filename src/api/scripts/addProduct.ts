@@ -1,6 +1,6 @@
 import { db } from '../../db'
-import { Router, Request, Response } from 'express';
-import routes from '../routes';
+import { Request, Response } from 'express';
+
 export async function addProduct(req: Request, res: Response) {
   try {
     const productData = req.body
