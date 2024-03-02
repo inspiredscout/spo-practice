@@ -1,6 +1,6 @@
-/node_modules
-# Keep environment variables out of version control
+/*/node_modules
+/.idea
 backend/.env
-/dist
-/prisma/migrations
+SPA/dist
+/backend/prisma/migrations
 /data
