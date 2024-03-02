@@ -9,7 +9,7 @@ function Home() {
                 <nav className={styles.navbar}>
                     <div className={styles.conteiner}>
                         <img src='./logo.svg' alt=''/>
-                        <p>A convenient store with a bunch of goods for your car.</p>
+                        <p>A convenient store with a<br/> bunch of goods for your<br/> car.</p>
                         <ul>
                             <Link to='Catalog'>
                                 <li>Catalog</li>
@@ -39,12 +39,21 @@ function Home() {
                     <li><h1>Metro Barricade</h1>
                         <p>Zamoronov Street, 18
                             <br/>+7 123 456 11 88</p></li>
+                </ul>
+
+                <ul>
                     <li><h1>Frunzenskaya metro station</h1>
                         <p>Kholunov Lane, 8
                             <br/>+7 123 456 12 88</p></li>
+                </ul>
+
+                <ul>
                     <li><h1>Tulskaya metro station</h1>
                         <p>72 Lyusinovskaya Street
                             <br/>+7 123 456 13 88</p></li>
+                </ul>
+
+                <ul>
                     <li><h1>Proletarskaya metro station</h1>
                         <p>1st Dubrovskaya street, 1A
                             <br/>+7 123 456 15 88</p></li>
