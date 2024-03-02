@@ -1,6 +1,6 @@
 /*/node_modules
 /.idea
 backend/.env
-SPA/dist
+frontend/dist
 /backend/prisma/migrations
 /data
