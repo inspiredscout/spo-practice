@@ -5,7 +5,7 @@ services:
     ports:
       - "5432:5432"
     env_file:
-      - .env
+      - backend/.env
     volumes:
       - ./data/pg/data:/var/lib/postgressql/data
       - ./data/pg/config:/etc/postgressql/data
@@ -18,12 +18,12 @@ services:
 
   backend:
     build:
-      context: .
-      dockerfile: ./Dockerfile
+      context: ./backend
+      dockerfile: ./backend/Dockerfile
     ports:
       - ${API_PORT}:${API_PORT}
     env_file:
-      - .env
+      - backend/.env
     depends_on:
       db:
         condition: service_healthy
