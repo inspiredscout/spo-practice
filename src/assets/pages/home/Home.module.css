@@ -13,6 +13,8 @@
     background-position: top;
     max-width: 2560px;
     height: 400px;
+
+    
 }
 
 .conteiner{
@@ -31,6 +33,8 @@
     /*width: 236px;*/
     height: 89px;
     height: fit-content;
+
+    
 }
 
 .conteiner ul{
