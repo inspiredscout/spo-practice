@@ -1,0 +1,125 @@
+@import url('https://fonts.googleapis.com/css2?family=Jura:wght@300..700&display=swap');
+
+*{
+    padding: 0;
+    margin: 0;
+    font-family: Jura;
+}
+
+.navbar{
+    display: flex;
+    background-image: url("../../../../public/home-header.png");
+    background-size: cover;
+    background-position: top;
+    max-width: 2560px;
+    height: 400px;
+
+    
+}
+
+.conteiner{
+    flex-direction: column;
+    justify-content: center;
+    text-align: center;
+    height: fit-content;
+    /*width: 342px;*/
+    height: 294px;
+    margin-top: 20px;
+    margin-left: 140px;
+}
+
+.conteiner img{
+    display: inline-block;
+    /*width: 236px;*/
+    height: 89px;
+    height: fit-content;
+
+    
+}
+
+.conteiner ul{
+    margin-top: 30px;
+    display: inline-block;
+    /*width: 176px;*/
+    height: 45px;
+    height:fit-content;
+}
+
+.conteiner li{
+    background-color: #0e4b78;
+    border-radius: 30px;
+    font-size: 25px;
+    width: 176px;
+    height: 45px;
+    display: flex;
+    list-style-type: none;
+    justify-content: center;
+    align-items: center;
+    color: white;
+    text-decoration: none;
+}
+
+.conteiner p{
+    color: white;
+    font-size: 25px;
+    text-align: center;
+    align-items: center;
+    margin-top: 40px;
+    /*width: 330px;*/
+    height: 90px;
+    height:fit-content ;
+}
+
+.info h1{
+    text-align: center;
+    font-size: 50px;
+    margin-top: 52px;
+}
+.info p{
+    text-align: center;
+    font-size: 40px;
+}
+
+.workclock h1{
+    margin-top: 72px;
+    text-align: center;
+    font-size: 50px;
+}
+.workclock p{
+    text-align: center;
+    font-size: 40px;
+
+}
+
+.workclockinfo{
+    display: flex;
+    max-width: 2560px;
+    text-align: center;
+    justify-content: center;
+    margin: 71px 0 90px 81px;
+    flex-wrap: wrap;
+}
+
+.workclockinfo ul{
+    list-style-type: none;
+    margin:40px 81px 40px 0;
+    width: 419px;
+    height: 92px;
+}
+
+.workclockinfo h1{
+    font-size: 27px;
+}
+
+.workclockinfo p{
+    font-size: 25px;
+}
+
+.map{
+    border: none;
+    width: 100%;
+    height: 400px;
+
+
+
+}
