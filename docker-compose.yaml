@@ -34,6 +34,7 @@ services:
       - ./static:/app/dist
   proxy:
     image: nginx:latest
+    container_name: spo-proxy
     env_file:
       - .env
     volumes:
