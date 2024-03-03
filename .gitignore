@@ -4,3 +4,4 @@ backend/.env
 frontend/dist
 /backend/prisma/migrations
 /data
+.env
