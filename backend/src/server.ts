@@ -1,6 +1,6 @@
 import express from "express"
-import swaggerUi from "swagger-ui-express"
 import routes from "./api/routes"
+import swaggerUi from "swagger-ui-express"
 import * as dotenv from "dotenv"
 dotenv.config()
 
@@ -9,7 +9,7 @@ const port = process.env.API_PORT || 3000;
 
 app.use(express.json());
 app.use(routes);
-app.use("/docs",
+app.use("/api/docs",
     swaggerUi.serve,
     swaggerUi.setup(undefined,{
         swaggerOptions: {
