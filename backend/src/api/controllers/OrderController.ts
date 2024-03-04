@@ -1,16 +1,7 @@
 import { Body, Controller, Get, Path, Post, Put, Queries, Route, Tags } from 'tsoa';
 import { db } from '../../db'
 import Order from "../../models/Order";
-
-
-interface checkOrderQuery {
-    id?: number
-    customerName?: string
-    customerEmail?: string
-    customerPhone?: string
-    customerAdress?: string
-}
-
+import checkOrderQuery from '../../models/checkOrderQuery';
 
 @Route("order")
 @Tags("Orders")

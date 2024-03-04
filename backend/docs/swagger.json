@@ -1,0 +1,1748 @@
+{
+	"openapi": "3.0.0",
+	"components": {
+		"examples": {},
+		"headers": {},
+		"parameters": {},
+		"requestBodies": {},
+		"responses": {},
+		"schemas": {
+			"Product": {
+				"properties": {
+					"name": {
+						"type": "string"
+					},
+					"price": {
+						"type": "string"
+					},
+					"photos": {
+						"items": {
+							"$ref": "#/components/schemas/Photo"
+						},
+						"type": "array"
+					},
+					"description": {
+						"type": "string"
+					},
+					"type": {
+						"type": "string"
+					},
+					"country": {
+						"type": "string"
+					},
+					"color": {
+						"type": "string"
+					},
+					"brand": {
+						"type": "string"
+					},
+					"orderItems": {
+						"items": {
+							"$ref": "#/components/schemas/Order"
+						},
+						"type": "array"
+					},
+					"visibility": {
+						"type": "boolean"
+					}
+				},
+				"required": [
+					"photos",
+					"country",
+					"color",
+					"brand",
+					"orderItems",
+					"visibility"
+				],
+				"type": "object",
+				"additionalProperties": false
+			},
+			"Photo": {
+				"properties": {
+					"url": {
+						"type": "string"
+					},
+					"product": {
+						"$ref": "#/components/schemas/Product"
+					}
+				},
+				"required": [
+					"url",
+					"product"
+				],
+				"type": "object",
+				"additionalProperties": false
+			},
+			"Item": {
+				"properties": {
+					"productId": {
+						"type": "number",
+						"format": "double"
+					},
+					"quantity": {
+						"type": "number",
+						"format": "double"
+					},
+					"product": {
+						"$ref": "#/components/schemas/Product"
+					}
+				},
+				"required": [
+					"productId",
+					"quantity",
+					"product"
+				],
+				"type": "object",
+				"additionalProperties": false
+			},
+			"Order": {
+				"properties": {
+					"customerName": {
+						"type": "string"
+					},
+					"customerEmail": {
+						"type": "string"
+					},
+					"customerPhone": {
+						"type": "string"
+					},
+					"customerAdress": {
+						"type": "string"
+					},
+					"status": {
+						"type": "string"
+					},
+					"orderItems": {
+						"items": {
+							"$ref": "#/components/schemas/Item"
+						},
+						"type": "array"
+					}
+				},
+				"required": [
+					"customerName",
+					"customerEmail",
+					"customerPhone",
+					"customerAdress",
+					"status",
+					"orderItems"
+				],
+				"type": "object",
+				"additionalProperties": false
+			},
+			"getProductQuery": {
+				"properties": {
+					"id": {
+						"type": "number",
+						"format": "double"
+					},
+					"name": {
+						"type": "string"
+					},
+					"price": {
+						"type": "string"
+					},
+					"description": {
+						"type": "string"
+					},
+					"type": {
+						"type": "string"
+					},
+					"country": {
+						"type": "string"
+					},
+					"color": {
+						"type": "string"
+					},
+					"brand": {
+						"type": "string"
+					},
+					"visibility": {
+						"type": "boolean"
+					}
+				},
+				"type": "object",
+				"additionalProperties": false
+			},
+			"checkOrderQuery": {
+				"properties": {
+					"id": {
+						"type": "number",
+						"format": "double"
+					},
+					"customerName": {
+						"type": "string"
+					},
+					"customerEmail": {
+						"type": "string"
+					},
+					"customerPhone": {
+						"type": "string"
+					},
+					"customerAdress": {
+						"type": "string"
+					}
+				},
+				"type": "object",
+				"additionalProperties": false
+			}
+		},
+		"securitySchemes": {}
+	},
+	"info": {
+		"title": "SPO_Practice-1",
+		"version": "1.0.0",
+		"license": {
+			"name": "ISC"
+		},
+		"contact": {}
+	},
+	"paths": {
+		"/test/1": {
+			"get": {
+				"operationId": "Test",
+				"responses": {
+					"200": {
+						"description": "Ok",
+						"content": {
+							"application/json": {
+								"schema": {
+									"properties": {
+										"status": {
+											"type": "number",
+											"format": "double"
+										},
+										"Message": {
+											"type": "string"
+										}
+									},
+									"required": [
+										"status",
+										"Message"
+									],
+									"type": "object"
+								}
+							}
+						}
+					}
+				},
+				"tags": [
+					"Tests"
+				],
+				"security": [],
+				"parameters": []
+			}
+		},
+		"/test/2": {
+			"get": {
+				"operationId": "Test2",
+				"responses": {
+					"200": {
+						"description": "Ok",
+						"content": {
+							"application/json": {
+								"schema": {
+									"properties": {
+										"status": {
+											"type": "number",
+											"format": "double"
+										},
+										"Message": {
+											"type": "string"
+										}
+									},
+									"required": [
+										"status",
+										"Message"
+									],
+									"type": "object"
+								}
+							}
+						}
+					}
+				},
+				"tags": [
+					"Tests"
+				],
+				"security": [],
+				"parameters": []
+			}
+		},
+		"/product/add": {
+			"post": {
+				"operationId": "AddProduct",
+				"responses": {
+					"200": {
+						"description": "Ok",
+						"content": {
+							"application/json": {
+								"schema": {
+									"anyOf": [
+										{
+											"properties": {
+												"error": {},
+												"status": {
+													"type": "number",
+													"format": "double"
+												},
+												"newProduct": {
+													"allOf": [
+														{
+															"properties": {
+																"photos": {
+																	"items": {
+																		"properties": {
+																			"url": {
+																				"type": "string"
+																			},
+																			"photoId": {
+																				"type": "number",
+																				"format": "double"
+																			},
+																			"id": {
+																				"type": "number",
+																				"format": "double"
+																			}
+																		},
+																		"required": [
+																			"url",
+																			"photoId",
+																			"id"
+																		],
+																		"type": "object"
+																	},
+																	"type": "array"
+																}
+															},
+															"required": [
+																"photos"
+															],
+															"type": "object"
+														},
+														{
+															"properties": {
+																"visibility": {
+																	"type": "boolean"
+																},
+																"brand": {
+																	"type": "string"
+																},
+																"color": {
+																	"type": "string"
+																},
+																"country": {
+																	"type": "string"
+																},
+																"type": {
+																	"type": "string"
+																},
+																"description": {
+																	"type": "string"
+																},
+																"price": {
+																	"type": "string"
+																},
+																"name": {
+																	"type": "string"
+																},
+																"id": {
+																	"type": "number",
+																	"format": "double"
+																}
+															},
+															"required": [
+																"visibility",
+																"brand",
+																"color",
+																"country",
+																"type",
+																"description",
+																"price",
+																"name",
+																"id"
+															],
+															"type": "object"
+														}
+													]
+												},
+												"success": {
+													"type": "boolean"
+												}
+											},
+											"required": [
+												"status",
+												"newProduct",
+												"success"
+											],
+											"type": "object"
+										},
+										{
+											"properties": {
+												"newProduct": {},
+												"status": {
+													"type": "number",
+													"format": "double"
+												},
+												"error": {
+													"type": "string"
+												},
+												"success": {
+													"type": "boolean"
+												}
+											},
+											"required": [
+												"status",
+												"error",
+												"success"
+											],
+											"type": "object"
+										}
+									]
+								}
+							}
+						}
+					}
+				},
+				"tags": [
+					"Product"
+				],
+				"security": [],
+				"parameters": [],
+				"requestBody": {
+					"required": true,
+					"content": {
+						"application/json": {
+							"schema": {
+								"$ref": "#/components/schemas/Product"
+							}
+						}
+					}
+				}
+			}
+		},
+		"/product": {
+			"get": {
+				"operationId": "GetProduct",
+				"responses": {
+					"200": {
+						"description": "Ok",
+						"content": {
+							"application/json": {
+								"schema": {
+									"anyOf": [
+										{
+											"properties": {
+												"error": {},
+												"product": {},
+												"status": {
+													"type": "number",
+													"format": "double"
+												},
+												"success": {
+													"type": "boolean"
+												},
+												"message": {
+													"type": "string"
+												}
+											},
+											"required": [
+												"status",
+												"success",
+												"message"
+											],
+											"type": "object"
+										},
+										{
+											"properties": {
+												"error": {},
+												"message": {},
+												"status": {
+													"type": "number",
+													"format": "double"
+												},
+												"product": {
+													"items": {
+														"allOf": [
+															{
+																"properties": {
+																	"photos": {
+																		"items": {
+																			"properties": {
+																				"url": {
+																					"type": "string"
+																				},
+																				"photoId": {
+																					"type": "number",
+																					"format": "double"
+																				},
+																				"id": {
+																					"type": "number",
+																					"format": "double"
+																				}
+																			},
+																			"required": [
+																				"url",
+																				"photoId",
+																				"id"
+																			],
+																			"type": "object"
+																		},
+																		"type": "array"
+																	}
+																},
+																"required": [
+																	"photos"
+																],
+																"type": "object"
+															},
+															{
+																"properties": {
+																	"visibility": {
+																		"type": "boolean"
+																	},
+																	"brand": {
+																		"type": "string"
+																	},
+																	"color": {
+																		"type": "string"
+																	},
+																	"country": {
+																		"type": "string"
+																	},
+																	"type": {
+																		"type": "string"
+																	},
+																	"description": {
+																		"type": "string"
+																	},
+																	"price": {
+																		"type": "string"
+																	},
+																	"name": {
+																		"type": "string"
+																	},
+																	"id": {
+																		"type": "number",
+																		"format": "double"
+																	}
+																},
+																"required": [
+																	"visibility",
+																	"brand",
+																	"color",
+																	"country",
+																	"type",
+																	"description",
+																	"price",
+																	"name",
+																	"id"
+																],
+																"type": "object"
+															}
+														]
+													},
+													"type": "array"
+												},
+												"success": {
+													"type": "boolean"
+												}
+											},
+											"required": [
+												"status",
+												"product",
+												"success"
+											],
+											"type": "object"
+										},
+										{
+											"properties": {
+												"product": {},
+												"message": {},
+												"status": {
+													"type": "number",
+													"format": "double"
+												},
+												"error": {
+													"type": "string"
+												},
+												"success": {
+													"type": "boolean"
+												}
+											},
+											"required": [
+												"status",
+												"error",
+												"success"
+											],
+											"type": "object"
+										}
+									]
+								}
+							}
+						}
+					}
+				},
+				"tags": [
+					"Product"
+				],
+				"security": [],
+				"parameters": [
+					{
+						"in": "query",
+						"name": "id",
+						"required": false,
+						"schema": {
+							"format": "double",
+							"type": "number"
+						}
+					},
+					{
+						"in": "query",
+						"name": "name",
+						"required": false,
+						"schema": {
+							"type": "string"
+						}
+					},
+					{
+						"in": "query",
+						"name": "price",
+						"required": false,
+						"schema": {
+							"type": "string"
+						}
+					},
+					{
+						"in": "query",
+						"name": "description",
+						"required": false,
+						"schema": {
+							"type": "string"
+						}
+					},
+					{
+						"in": "query",
+						"name": "type",
+						"required": false,
+						"schema": {
+							"type": "string"
+						}
+					},
+					{
+						"in": "query",
+						"name": "country",
+						"required": false,
+						"schema": {
+							"type": "string"
+						}
+					},
+					{
+						"in": "query",
+						"name": "color",
+						"required": false,
+						"schema": {
+							"type": "string"
+						}
+					},
+					{
+						"in": "query",
+						"name": "brand",
+						"required": false,
+						"schema": {
+							"type": "string"
+						}
+					},
+					{
+						"in": "query",
+						"name": "visibility",
+						"required": false,
+						"schema": {
+							"type": "boolean"
+						}
+					}
+				]
+			}
+		},
+		"/product/getAll": {
+			"get": {
+				"operationId": "GetAllProduct",
+				"responses": {
+					"200": {
+						"description": "Ok",
+						"content": {
+							"application/json": {
+								"schema": {
+									"anyOf": [
+										{
+											"properties": {
+												"status": {},
+												"allProduct": {},
+												"totalProducts": {},
+												"success": {
+													"type": "boolean"
+												},
+												"message": {
+													"type": "string"
+												}
+											},
+											"required": [
+												"success",
+												"message"
+											],
+											"type": "object"
+										},
+										{
+											"properties": {
+												"message": {},
+												"status": {
+													"type": "number",
+													"format": "double"
+												},
+												"allProduct": {
+													"items": {
+														"allOf": [
+															{
+																"properties": {
+																	"photos": {
+																		"items": {
+																			"properties": {
+																				"url": {
+																					"type": "string"
+																				},
+																				"photoId": {
+																					"type": "number",
+																					"format": "double"
+																				},
+																				"id": {
+																					"type": "number",
+																					"format": "double"
+																				}
+																			},
+																			"required": [
+																				"url",
+																				"photoId",
+																				"id"
+																			],
+																			"type": "object"
+																		},
+																		"type": "array"
+																	}
+																},
+																"required": [
+																	"photos"
+																],
+																"type": "object"
+															},
+															{
+																"properties": {
+																	"visibility": {
+																		"type": "boolean"
+																	},
+																	"brand": {
+																		"type": "string"
+																	},
+																	"color": {
+																		"type": "string"
+																	},
+																	"country": {
+																		"type": "string"
+																	},
+																	"type": {
+																		"type": "string"
+																	},
+																	"description": {
+																		"type": "string"
+																	},
+																	"price": {
+																		"type": "string"
+																	},
+																	"name": {
+																		"type": "string"
+																	},
+																	"id": {
+																		"type": "number",
+																		"format": "double"
+																	}
+																},
+																"required": [
+																	"visibility",
+																	"brand",
+																	"color",
+																	"country",
+																	"type",
+																	"description",
+																	"price",
+																	"name",
+																	"id"
+																],
+																"type": "object"
+															}
+														]
+													},
+													"type": "array"
+												},
+												"totalProducts": {
+													"type": "number",
+													"format": "double"
+												},
+												"success": {
+													"type": "boolean"
+												}
+											},
+											"required": [
+												"status",
+												"allProduct",
+												"totalProducts",
+												"success"
+											],
+											"type": "object"
+										}
+									]
+								}
+							}
+						}
+					}
+				},
+				"tags": [
+					"Product"
+				],
+				"security": [],
+				"parameters": [
+					{
+						"in": "query",
+						"name": "limit",
+						"required": true,
+						"schema": {
+							"format": "double",
+							"type": "number"
+						}
+					}
+				]
+			}
+		},
+		"/product/super": {
+			"get": {
+				"operationId": "SuperGetAllProduct",
+				"responses": {
+					"200": {
+						"description": "Ok",
+						"content": {
+							"application/json": {
+								"schema": {
+									"anyOf": [
+										{
+											"properties": {
+												"sAllProduct": {},
+												"status": {
+													"type": "number",
+													"format": "double"
+												},
+												"success": {
+													"type": "boolean"
+												},
+												"message": {
+													"type": "string"
+												}
+											},
+											"required": [
+												"status",
+												"success",
+												"message"
+											],
+											"type": "object"
+										},
+										{
+											"properties": {
+												"message": {},
+												"status": {
+													"type": "number",
+													"format": "double"
+												},
+												"sAllProduct": {
+													"items": {
+														"allOf": [
+															{
+																"properties": {
+																	"photos": {
+																		"items": {
+																			"properties": {
+																				"url": {
+																					"type": "string"
+																				},
+																				"photoId": {
+																					"type": "number",
+																					"format": "double"
+																				},
+																				"id": {
+																					"type": "number",
+																					"format": "double"
+																				}
+																			},
+																			"required": [
+																				"url",
+																				"photoId",
+																				"id"
+																			],
+																			"type": "object"
+																		},
+																		"type": "array"
+																	}
+																},
+																"required": [
+																	"photos"
+																],
+																"type": "object"
+															},
+															{
+																"properties": {
+																	"visibility": {
+																		"type": "boolean"
+																	},
+																	"brand": {
+																		"type": "string"
+																	},
+																	"color": {
+																		"type": "string"
+																	},
+																	"country": {
+																		"type": "string"
+																	},
+																	"type": {
+																		"type": "string"
+																	},
+																	"description": {
+																		"type": "string"
+																	},
+																	"price": {
+																		"type": "string"
+																	},
+																	"name": {
+																		"type": "string"
+																	},
+																	"id": {
+																		"type": "number",
+																		"format": "double"
+																	}
+																},
+																"required": [
+																	"visibility",
+																	"brand",
+																	"color",
+																	"country",
+																	"type",
+																	"description",
+																	"price",
+																	"name",
+																	"id"
+																],
+																"type": "object"
+															}
+														]
+													},
+													"type": "array"
+												},
+												"success": {
+													"type": "boolean"
+												}
+											},
+											"required": [
+												"status",
+												"sAllProduct",
+												"success"
+											],
+											"type": "object"
+										}
+									]
+								}
+							}
+						}
+					}
+				},
+				"tags": [
+					"Product"
+				],
+				"security": [],
+				"parameters": []
+			}
+		},
+		"/product/update/{id}": {
+			"put": {
+				"operationId": "UpdateProduct",
+				"responses": {
+					"200": {
+						"description": "Ok",
+						"content": {
+							"application/json": {
+								"schema": {
+									"anyOf": [
+										{
+											"properties": {
+												"error": {},
+												"product": {},
+												"status": {
+													"type": "number",
+													"format": "double"
+												},
+												"success": {
+													"type": "boolean"
+												},
+												"message": {
+													"type": "string"
+												}
+											},
+											"required": [
+												"status",
+												"success",
+												"message"
+											],
+											"type": "object"
+										},
+										{
+											"properties": {
+												"error": {},
+												"message": {},
+												"status": {
+													"type": "number",
+													"format": "double"
+												},
+												"product": {
+													"properties": {
+														"visibility": {
+															"type": "boolean"
+														},
+														"brand": {
+															"type": "string"
+														},
+														"color": {
+															"type": "string"
+														},
+														"country": {
+															"type": "string"
+														},
+														"type": {
+															"type": "string"
+														},
+														"description": {
+															"type": "string"
+														},
+														"price": {
+															"type": "string"
+														},
+														"name": {
+															"type": "string"
+														},
+														"id": {
+															"type": "number",
+															"format": "double"
+														}
+													},
+													"required": [
+														"visibility",
+														"brand",
+														"color",
+														"country",
+														"type",
+														"description",
+														"price",
+														"name",
+														"id"
+													],
+													"type": "object"
+												},
+												"success": {
+													"type": "boolean"
+												}
+											},
+											"required": [
+												"status",
+												"product",
+												"success"
+											],
+											"type": "object"
+										},
+										{
+											"properties": {
+												"product": {},
+												"message": {},
+												"status": {
+													"type": "number",
+													"format": "double"
+												},
+												"error": {
+													"type": "string"
+												},
+												"success": {
+													"type": "boolean"
+												}
+											},
+											"required": [
+												"status",
+												"error",
+												"success"
+											],
+											"type": "object"
+										}
+									]
+								}
+							}
+						}
+					}
+				},
+				"tags": [
+					"Product"
+				],
+				"security": [],
+				"parameters": [
+					{
+						"in": "path",
+						"name": "id",
+						"required": true,
+						"schema": {
+							"format": "double",
+							"type": "number"
+						}
+					}
+				],
+				"requestBody": {
+					"required": true,
+					"content": {
+						"application/json": {
+							"schema": {
+								"$ref": "#/components/schemas/Product"
+							}
+						}
+					}
+				}
+			}
+		},
+		"/product/{id}/updateVisibility": {
+			"put": {
+				"operationId": "UpdateProductVisibility",
+				"responses": {
+					"200": {
+						"description": "Ok",
+						"content": {
+							"application/json": {
+								"schema": {
+									"anyOf": [
+										{
+											"properties": {
+												"status": {},
+												"updatedProduct": {},
+												"error": {
+													"type": "string"
+												},
+												"success": {
+													"type": "boolean"
+												}
+											},
+											"required": [
+												"error",
+												"success"
+											],
+											"type": "object"
+										},
+										{
+											"properties": {
+												"error": {},
+												"status": {
+													"type": "number",
+													"format": "double"
+												},
+												"updatedProduct": {
+													"properties": {
+														"visibility": {
+															"type": "boolean"
+														},
+														"brand": {
+															"type": "string"
+														},
+														"color": {
+															"type": "string"
+														},
+														"country": {
+															"type": "string"
+														},
+														"type": {
+															"type": "string"
+														},
+														"description": {
+															"type": "string"
+														},
+														"price": {
+															"type": "string"
+														},
+														"name": {
+															"type": "string"
+														},
+														"id": {
+															"type": "number",
+															"format": "double"
+														}
+													},
+													"required": [
+														"visibility",
+														"brand",
+														"color",
+														"country",
+														"type",
+														"description",
+														"price",
+														"name",
+														"id"
+													],
+													"type": "object"
+												},
+												"success": {
+													"type": "boolean"
+												}
+											},
+											"required": [
+												"status",
+												"updatedProduct",
+												"success"
+											],
+											"type": "object"
+										},
+										{
+											"properties": {
+												"updatedProduct": {},
+												"status": {
+													"type": "number",
+													"format": "double"
+												},
+												"error": {
+													"type": "string"
+												},
+												"success": {
+													"type": "boolean"
+												}
+											},
+											"required": [
+												"status",
+												"error",
+												"success"
+											],
+											"type": "object"
+										}
+									]
+								}
+							}
+						}
+					}
+				},
+				"tags": [
+					"Product"
+				],
+				"security": [],
+				"parameters": [
+					{
+						"in": "path",
+						"name": "id",
+						"required": true,
+						"schema": {
+							"format": "double",
+							"type": "number"
+						}
+					}
+				],
+				"requestBody": {
+					"required": true,
+					"content": {
+						"application/json": {
+							"schema": {
+								"properties": {
+									"newVisibility": {
+										"type": "string"
+									}
+								},
+								"required": [
+									"newVisibility"
+								],
+								"type": "object"
+							}
+						}
+					}
+				}
+			}
+		},
+		"/order/{id}/updateStatus": {
+			"put": {
+				"operationId": "UpdateOrderStatus",
+				"responses": {
+					"200": {
+						"description": "Ok",
+						"content": {
+							"application/json": {
+								"schema": {
+									"anyOf": [
+										{
+											"properties": {
+												"updatedOrder": {},
+												"status": {
+													"type": "number",
+													"format": "double"
+												},
+												"error": {
+													"type": "string"
+												},
+												"success": {
+													"type": "boolean"
+												}
+											},
+											"required": [
+												"status",
+												"error",
+												"success"
+											],
+											"type": "object"
+										},
+										{
+											"properties": {
+												"status": {},
+												"error": {},
+												"updatedOrder": {
+													"properties": {
+														"status": {
+															"type": "string"
+														},
+														"customerAdress": {
+															"type": "string"
+														},
+														"customerPhone": {
+															"type": "string"
+														},
+														"customerEmail": {
+															"type": "string"
+														},
+														"customerName": {
+															"type": "string"
+														},
+														"orderDate": {
+															"type": "string",
+															"format": "date-time"
+														},
+														"id": {
+															"type": "number",
+															"format": "double"
+														}
+													},
+													"required": [
+														"status",
+														"customerAdress",
+														"customerPhone",
+														"customerEmail",
+														"customerName",
+														"orderDate",
+														"id"
+													],
+													"type": "object"
+												},
+												"success": {
+													"type": "boolean"
+												}
+											},
+											"required": [
+												"updatedOrder",
+												"success"
+											],
+											"type": "object"
+										}
+									]
+								}
+							}
+						}
+					}
+				},
+				"tags": [
+					"Orders"
+				],
+				"security": [],
+				"parameters": [
+					{
+						"in": "path",
+						"name": "id",
+						"required": true,
+						"schema": {
+							"type": "string"
+						}
+					}
+				],
+				"requestBody": {
+					"required": true,
+					"content": {
+						"application/json": {
+							"schema": {
+								"properties": {
+									"newStatus": {
+										"type": "string"
+									}
+								},
+								"required": [
+									"newStatus"
+								],
+								"type": "object"
+							}
+						}
+					}
+				}
+			}
+		},
+		"/order": {
+			"post": {
+				"operationId": "CreateOrder",
+				"responses": {
+					"200": {
+						"description": "Ok",
+						"content": {
+							"application/json": {
+								"schema": {
+									"anyOf": [
+										{
+											"properties": {
+												"status": {},
+												"error": {},
+												"newOrder": {
+													"allOf": [
+														{
+															"properties": {
+																"orderItems": {
+																	"items": {
+																		"properties": {
+																			"orderId": {
+																				"type": "number",
+																				"format": "double"
+																			},
+																			"productId": {
+																				"type": "number",
+																				"format": "double"
+																			},
+																			"quantity": {
+																				"type": "number",
+																				"format": "double"
+																			},
+																			"id": {
+																				"type": "number",
+																				"format": "double"
+																			}
+																		},
+																		"required": [
+																			"orderId",
+																			"productId",
+																			"quantity",
+																			"id"
+																		],
+																		"type": "object"
+																	},
+																	"type": "array"
+																}
+															},
+															"required": [
+																"orderItems"
+															],
+															"type": "object"
+														},
+														{
+															"properties": {
+																"status": {
+																	"type": "string"
+																},
+																"customerAdress": {
+																	"type": "string"
+																},
+																"customerPhone": {
+																	"type": "string"
+																},
+																"customerEmail": {
+																	"type": "string"
+																},
+																"customerName": {
+																	"type": "string"
+																},
+																"orderDate": {
+																	"type": "string",
+																	"format": "date-time"
+																},
+																"id": {
+																	"type": "number",
+																	"format": "double"
+																}
+															},
+															"required": [
+																"status",
+																"customerAdress",
+																"customerPhone",
+																"customerEmail",
+																"customerName",
+																"orderDate",
+																"id"
+															],
+															"type": "object"
+														}
+													]
+												},
+												"success": {
+													"type": "boolean"
+												}
+											},
+											"required": [
+												"newOrder",
+												"success"
+											],
+											"type": "object"
+										},
+										{
+											"properties": {
+												"newOrder": {},
+												"status": {
+													"type": "number",
+													"format": "double"
+												},
+												"error": {
+													"type": "string"
+												},
+												"success": {
+													"type": "boolean"
+												}
+											},
+											"required": [
+												"status",
+												"error",
+												"success"
+											],
+											"type": "object"
+										}
+									]
+								}
+							}
+						}
+					}
+				},
+				"tags": [
+					"Orders"
+				],
+				"security": [],
+				"parameters": [],
+				"requestBody": {
+					"required": true,
+					"content": {
+						"application/json": {
+							"schema": {
+								"$ref": "#/components/schemas/Order"
+							}
+						}
+					}
+				}
+			},
+			"get": {
+				"operationId": "CheckOrder",
+				"responses": {
+					"200": {
+						"description": "Ok",
+						"content": {
+							"application/json": {
+								"schema": {
+									"anyOf": [
+										{
+											"properties": {
+												"error": {},
+												"findOrder": {},
+												"status": {
+													"type": "number",
+													"format": "double"
+												},
+												"success": {
+													"type": "boolean"
+												},
+												"message": {
+													"type": "string"
+												}
+											},
+											"required": [
+												"status",
+												"success",
+												"message"
+											],
+											"type": "object"
+										},
+										{
+											"properties": {
+												"error": {},
+												"status": {},
+												"message": {},
+												"findOrder": {
+													"items": {
+														"allOf": [
+															{
+																"properties": {
+																	"orderItems": {
+																		"items": {
+																			"properties": {
+																				"orderId": {
+																					"type": "number",
+																					"format": "double"
+																				},
+																				"productId": {
+																					"type": "number",
+																					"format": "double"
+																				},
+																				"quantity": {
+																					"type": "number",
+																					"format": "double"
+																				},
+																				"id": {
+																					"type": "number",
+																					"format": "double"
+																				}
+																			},
+																			"required": [
+																				"orderId",
+																				"productId",
+																				"quantity",
+																				"id"
+																			],
+																			"type": "object"
+																		},
+																		"type": "array"
+																	}
+																},
+																"required": [
+																	"orderItems"
+																],
+																"type": "object"
+															},
+															{
+																"properties": {
+																	"status": {
+																		"type": "string"
+																	},
+																	"customerAdress": {
+																		"type": "string"
+																	},
+																	"customerPhone": {
+																		"type": "string"
+																	},
+																	"customerEmail": {
+																		"type": "string"
+																	},
+																	"customerName": {
+																		"type": "string"
+																	},
+																	"orderDate": {
+																		"type": "string",
+																		"format": "date-time"
+																	},
+																	"id": {
+																		"type": "number",
+																		"format": "double"
+																	}
+																},
+																"required": [
+																	"status",
+																	"customerAdress",
+																	"customerPhone",
+																	"customerEmail",
+																	"customerName",
+																	"orderDate",
+																	"id"
+																],
+																"type": "object"
+															}
+														]
+													},
+													"type": "array"
+												},
+												"success": {
+													"type": "boolean"
+												}
+											},
+											"required": [
+												"findOrder",
+												"success"
+											],
+											"type": "object"
+										},
+										{
+											"properties": {
+												"findOrder": {},
+												"message": {},
+												"status": {
+													"type": "number",
+													"format": "double"
+												},
+												"error": {
+													"type": "string"
+												},
+												"success": {
+													"type": "boolean"
+												}
+											},
+											"required": [
+												"status",
+												"error",
+												"success"
+											],
+											"type": "object"
+										}
+									]
+								}
+							}
+						}
+					}
+				},
+				"tags": [
+					"Orders"
+				],
+				"security": [],
+				"parameters": [
+					{
+						"in": "query",
+						"name": "id",
+						"required": false,
+						"schema": {
+							"format": "double",
+							"type": "number"
+						}
+					},
+					{
+						"in": "query",
+						"name": "customerName",
+						"required": false,
+						"schema": {
+							"type": "string"
+						}
+					},
+					{
+						"in": "query",
+						"name": "customerEmail",
+						"required": false,
+						"schema": {
+							"type": "string"
+						}
+					},
+					{
+						"in": "query",
+						"name": "customerPhone",
+						"required": false,
+						"schema": {
+							"type": "string"
+						}
+					},
+					{
+						"in": "query",
+						"name": "customerAdress",
+						"required": false,
+						"schema": {
+							"type": "string"
+						}
+					}
+				]
+			}
+		}
+	},
+	"servers": [
+		{
+			"url": "/"
+		}
+	]
+}

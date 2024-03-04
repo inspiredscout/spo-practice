@@ -1,14 +1,16 @@
 import { db } from '../../db'
-import { Request } from 'express';
-import {Route, Post, Get, Put, Controller} from 'tsoa';
+import { Request, query } from 'express';
+import {Route, Post, Get, Put, Controller, Tags, Body, Queries, Path} from 'tsoa';
+import Product from '../../models/Product';
+import getProductQuery from '../../models/getProductQuery';
 
 
+@Route("product")
+@Tags("Product")
 export default class ProductController extends Controller{
-  @Route("addProduct")
-  @Post()
-  async addProduct(req: Request) {
+  @Post("/add")
+  async addProduct(@Body() productData: Product ) {
     try {
-      const productData = req.body
 
       const photosData = productData.photos
           ? productData.photos.map((photo: { url: string }) => ({ url: photo.url }))
@@ -35,18 +37,16 @@ export default class ProductController extends Controller{
         }
       });
       
-        return { success: true, newProduct };
+        return { success: true, newProduct, status: 200 };
       } catch (error) {
         console.error('Error adding product:', error);
-        return { success: false, error: 'Бекендер еблан, тестер еще тупее' };
+        return { success: false, error: 'Бекендер еблан, тестер еще тупее', status: 500 };
     }
   }
 
-  @Route("getProduct")
-  @Get()
-  async getProduct(req: Request) {
+  @Get("/")
+  async getProduct(@Queries() rqst: getProductQuery) {
     try{
-    const rqst = req.body
     const product = await db?.products.findMany({
         where: {
             OR: [
@@ -65,21 +65,20 @@ export default class ProductController extends Controller{
             photos: true
         }
 })
-    if (product.length === 0) return {message:'Такого товара у нас нету', success: false}
+    if (product.length === 0) return {message:'Такого товара у нас нету', success: false, status: 404}
     else {
-        return {success: true, product}
+        return {success: true, product, status: 200}
     }
 } catch (error) {
     console.error('Error adding product:', error);
-    return { success: false, error: 'Бекендер еблан, тестер еще тупее' };
+    return { success: false, error: 'Бекендер еблан, тестер еще тупее', status: 500 };
 }
 }
 
-  @Route("getAllProduct")
-  @Get()
-  async getAllProduct(req: Request) {
-    const { limit } = req.query;
-    const takeLimit = limit ? parseInt(limit as string, 10) : undefined;
+  @Get("/getAll")
+  async getAllProduct(@Queries() query: {limit:number}) {
+    const { limit } = query;
+    const takeLimit = limit
     const allProduct = await db?.products.findMany({
         take: takeLimit,
         where:{
@@ -103,12 +102,11 @@ export default class ProductController extends Controller{
 
     if (allProduct.length === 0) return {message:'Долбаеб, у нас нету товаров', success: false}
     else {
-        return {success: true, totalProducts, allProduct}
+        return {success: true, totalProducts, allProduct, status: 200}
     }
 }
 
-  @Route("superGetAllProduct")
-  @Get()
+  @Get("super")
   async superGetAllProduct() {
     const sAllProduct = await db?.products.findMany({
         where:{
@@ -120,21 +118,19 @@ export default class ProductController extends Controller{
             photos: true
         }
 })
-    if (sAllProduct.length === 0) return {message:'Долбаеб, у нас нету товаров', success: false}
+    if (sAllProduct.length === 0) return {message:'Долбаеб, у нас нету товаров', success: false, status: 404}
     else {
-        return {success: true, sAllProduct}
+        return {success: true, sAllProduct, status:200}
     }
 }
 
-  @Route("updateProduct")
-  @Put()
-  async updateProduct(req: Request) {
+  @Put("/update/:id")
+  async updateProduct(@Path() id: number, @Body() rqst: Product) {
     try {
-    const rqst = req.body
     const rqstPhotos = rqst.photos
     const product = await db?.products.update({
         where: {
-            id : rqst.id
+            id : Number(id)
         },
         data: {
             name: rqst.name,
@@ -151,7 +147,7 @@ export default class ProductController extends Controller{
         await db?.photos.deleteMany({
             where: {
                 product: {
-                    id: rqst.id,
+                    id: Number(id),
                 },
             },
         });
@@ -162,7 +158,7 @@ export default class ProductController extends Controller{
                     url: photo.url,
                     product: {
                         connect: {
-                            id: rqst.id,
+                            id: Number(id),
                         },
                     },
                 },
@@ -173,20 +169,20 @@ export default class ProductController extends Controller{
     }
 
     if (!product) {
-        return { message: 'Такого товара у нас нет', success: false }
+        return { message: 'Такого товара у нас нет', success: false, status: 404 }
     } else {
-        return { success: true, product }}
+        return { success: true, product, status: 200 }}
     } catch (error) {
         console.error('Error adding product:', error);
-        return { success: false, error: 'Бекендер еблан, тестер еще тупее' }
+        return { success: false, error: 'Бекендер еблан, тестер еще тупее', status: 500 }
     }
 }
 
-  @Route("updateProductVisibility")
-  @Put()
-  async updateProductVisibility(req: Request) {
+  @Put("/:id/updateVisibility")
+  async updateProductVisibility(@Path() id: number, @Body() body:{newVisibility: string}) {
     try {
-    const { productId, newVisibility } = req.body;
+        const {newVisibility} = body
+    const productId = id
     if (typeof newVisibility !== 'boolean') {
         return { success: false, error: 'newVisibility должно быть булевым значением' };
     }
@@ -202,10 +198,10 @@ export default class ProductController extends Controller{
             visibility: newVisibility,
         }
 })
-    return {success: true, updatedProduct}
+    return {success: true, updatedProduct, status: 200}
 } catch (error) {
     console.error('Error adding product:', error);
-    return { success: false, error: 'Бекендер еблан, тестер еще тупее' }
+    return { success: false, error: 'Бекендер еблан, тестер еще тупее', status: 500 }
 }
     
 }

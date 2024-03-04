@@ -4,7 +4,7 @@ import Order from "./Order";
 export default interface Product {
     name?: string
     price?: string
-    photos: Photo
+    photos: Photo[]
     description?: string
     type?: string
     country: string

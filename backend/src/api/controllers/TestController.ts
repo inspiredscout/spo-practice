@@ -1,15 +1,15 @@
-import { Get, Route, Controller } from 'tsoa';
+import { Get, Route, Controller, Tags } from 'tsoa';
 
+@Tags("Tests")
+@Route("test")
 export default class TestController extends Controller{
-    @Route("test")
-    @Get()
+    @Get("/1")
     async test() {
-        return {Message: "Гриша ленивое уебище!"}
+        return {Message: "Гриша ленивое уебище!", status: 200}
     }
 
-    @Route("test2")
-    @Get()
+    @Get("/2")
     async test2() {
-        return {Message: "Ярик пивное уебище!"}
+        return {Message: "Ярик пивное уебище!", status: 200}
     }
 }
