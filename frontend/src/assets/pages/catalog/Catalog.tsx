@@ -21,14 +21,10 @@ function Catalog() {
                 <div className={styles.filters}>
 
                     <ul className={styles.types}>
-                        {/*<li>Oils and liquids</li>
+                        <li>Oils and liquids</li>
                         <li>Accessories</li>
                         <li>Tires and rims</li>
-                        <li>Product for maintenance</li>*/}
-                        <li>Мама Вани</li>
-                        <li>Папа вани</li>
-                        <li>Кот вани</li>
-                        <li>Брат вани</li>
+                        <li>Product for maintenance</li>
                     </ul>
 
                     <ul className={styles.brands}>
@@ -49,7 +45,7 @@ function Catalog() {
                         </Link>
 
                         <div className={styles.info}>
-                            <h2>Name</h2>
+                            <h3>Name</h3>
                             <p>Price</p>
                             <button>Add</button>
                         </div>
@@ -60,7 +56,7 @@ function Catalog() {
                             <img src='./1.jpg' alt=''/>
                         </div>
                         <div className={styles.info}>
-                            <h2>Name</h2>
+                            <h3>Name</h3>
                             <p>Price</p>
                             <button>Add</button>
                         </div>
@@ -71,7 +67,7 @@ function Catalog() {
                             <img src='./1.jpg' alt=''/>
                         </div>
                         <div className={styles.info}>
-                            <h2>Name</h2>
+                            <h3>Name</h3>
                             <p>Price</p>
                             <button>Add</button>
                         </div>
@@ -82,7 +78,7 @@ function Catalog() {
                             <img src='./1.jpg' alt=''/>
                         </div>
                         <div className={styles.info}>
-                            <h2>Name</h2>
+                            <h3>Name</h3>
                             <p>Price</p>
                             <button>Add</button>
                         </div>
@@ -93,7 +89,7 @@ function Catalog() {
                             <img src='./1.jpg' alt=''/>
                         </div>
                         <div className={styles.info}>
-                            <h2>Name</h2>
+                            <h3>Name</h3>
                             <p>Price</p>
                             <button>Add</button>
                         </div>
@@ -104,7 +100,7 @@ function Catalog() {
                             <img src='./1.jpg' alt=''/>
                         </div>
                         <div className={styles.info}>
-                            <h2>Name</h2>
+                            <h3>Name</h3>
                             <p>Price</p>
                             <button>Add</button>
                         </div>
@@ -115,7 +111,7 @@ function Catalog() {
                             <img src='./1.jpg' alt=''/>
                         </div>
                         <div className={styles.info}>
-                            <h2>Name</h2>
+                            <h3>Name</h3>
                             <p>Price</p>
                             <button>Add</button>
                         </div>
@@ -126,7 +122,7 @@ function Catalog() {
                             <img src='./1.jpg' alt=''/>
                         </div>
                         <div className={styles.info}>
-                            <h2>Name</h2>
+                            <h3>Name</h3>
                             <p>Price</p>
                             <button>Add</button>
                         </div>
@@ -147,9 +143,6 @@ function Catalog() {
 
             </div>
 
-            <footer className={styles.footer}>
-
-            </footer>
         </main>
     )
 }

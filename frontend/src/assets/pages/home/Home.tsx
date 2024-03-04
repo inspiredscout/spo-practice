@@ -16,6 +16,19 @@ function Home() {
                             </Link>
                         </ul>
                     </div>
+
+                    <div className={styles.contact}>
+                        <div className={styles.social}>
+                            <a href='https://www.youtube.com/watch?v=dQw4w9WgXcQ'><img src='./Inst.svg' alt=''/></a>
+                            <a href='https://www.youtube.com/watch?v=johcE5s525M'><img src='./VK.svg' alt=''/></a>
+                            <a href='https://www.youtube.com/watch?v=lqdueOTo5UA'><img src='./Telegram.svg' alt=''/></a>
+                        </div>
+
+                        <div className={styles.phone}>
+                            <img src='./Phone.png' />
+                            <p>+7 123 456 14 88</p>
+                        </div>
+                    </div>
                 </nav>
             </header>
 
