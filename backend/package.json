@@ -5,10 +5,10 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "build": "tsc",
+    "build": "tsoa spec && tsc",
     "start": "node ./dist/server.js",
     "force-start": "tsc && node ./dist/server.js",
-    "dev": "concurrently \"nodemon src/server.ts\" \"nodemon -x tsoa spec\""
+    "dev": "concurrently \"nodemon src/server.ts \"nodemon -x tsoa spec\""
   },
   "keywords": [],
   "author": "",
