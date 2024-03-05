@@ -3,8 +3,11 @@
     "noImplicitAdditionalProperties": "throw-on-extras",
     "controllerPathGlobs": ["src/**/*Controller.ts"],
     "spec": {
+      "host": "localhost:3000",
+      "basePath":"/api",
       "outputDirectory": "./docs",
-      "specVersion": 3
+      "specVersion": 3,
+      "description": "lfdjlgshif'kllk"
     }
   }
   

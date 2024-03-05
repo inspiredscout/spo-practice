@@ -12,7 +12,7 @@ const port = process.env.API_PORT || 3000;
 
 app.use(express.json());
 app.use(routes);
-app.use("/docs",
+app.use("/api/docs",
     swaggerUi.serve,
     swaggerUi.setup(swaggerJson))
 
