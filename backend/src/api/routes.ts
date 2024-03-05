@@ -63,7 +63,7 @@ router.get('/api/product/getAll', async (req: Request, res: Response) => {
     return res.json(response)
 })
 
-router.get('/api/product/', async (req: Request, res: Response) => {
+router.get('/api/product/get', async (req: Request, res: Response) => {
     const controller = new ProductController()
     let request = req.body
     const response = await controller.getProduct(request)
