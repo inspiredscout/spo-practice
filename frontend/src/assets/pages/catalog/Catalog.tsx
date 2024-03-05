@@ -133,16 +133,6 @@ function Catalog() {
                         </div>
                     </div>
 
-                    <div className={styles.position}>
-                        <div className={styles.image}>
-                            <img src='./1.jpg' alt=''/>
-                        </div>
-                        <div className={styles.info}>
-                            <h2>Name</h2>
-                            <p>Price</p>
-                            <button>Add</button>
-                        </div>
-                    </div>
                 </div>
 
 

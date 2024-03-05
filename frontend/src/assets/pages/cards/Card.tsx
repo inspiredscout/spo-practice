@@ -16,6 +16,7 @@ function Card() {
                         </ul>
                     </div>
                 </nav>
+
             </header>
 
         </main>
