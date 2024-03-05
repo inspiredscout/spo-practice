@@ -4,3 +4,4 @@ backend/.env
 SPA/dist
 /backend/prisma/migrations
 /data
+/backend/src/docs/swagger.json
