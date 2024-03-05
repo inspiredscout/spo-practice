@@ -29,7 +29,7 @@ export default class OrderController extends Controller {
         }
     }
 
-    @Post("/add")
+    @Post("/")
     async createOrder(@Body() orderData: Order) {
         try {
             const newOrder = await db?.order.create({
@@ -60,7 +60,7 @@ export default class OrderController extends Controller {
         }
     }
 
-    @Get("/get")
+    @Get("/")
     async checkOrder(@Queries() query: checkOrderQuery) {
         try {
             const findOrder = await db?.order.findMany({
@@ -77,7 +77,9 @@ export default class OrderController extends Controller {
                     orderItems: true
                 }
             })
-            if (findOrder.length === 0) return ({message: 'Такого заказа нету', success: false, status: 404})
+            if (!findOrder || findOrder.length === 0){ 
+                return ({message: 'Такого заказа нету', success: false, status: 404})
+                }
             else {
                 return {success: true, findOrder}
             }

@@ -7,7 +7,7 @@ import getProductQuery from '../../models/getProductQuery';
 @Route("product")
 @Tags("Product")
 export default class ProductController extends Controller{
-  @Post("/add")
+  @Post("/")
   async addProduct(@Body() productData: Product ) {
     try {
 
@@ -43,7 +43,7 @@ export default class ProductController extends Controller{
     }
   }
 
-  @Get("/get")
+  @Get("/")
   async getProduct(@Queries() rqst: getProductQuery) {
     try{
     const product = await db?.products.findMany({
