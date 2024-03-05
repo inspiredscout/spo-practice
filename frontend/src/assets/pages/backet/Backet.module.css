@@ -1,0 +1,54 @@
+@import url('https://fonts.googleapis.com/css2?family=Jura:wght@300..700&display=swap');
+
+*{
+    padding: 0;
+    margin: 0;
+    font-family: Jura;
+}
+/*Шапка страницы каталог*/
+.navbar{
+    display: flex;
+    background-image: url("../../../../public/catalog-header.png");
+    background-size: cover;
+    background-position: top;
+    max-width: 2560px;
+    height: 250px;
+    justify-content: space-between;
+    background-repeat: no-repeat;
+}
+
+.conteiner{
+    display: flex;
+    justify-content: center;
+    text-align: center;
+    align-items: flex-end;
+}
+
+.navbar img{
+    display: flex;
+    height: 89px;
+    height: fit-content;
+    margin: 77px 0 77px 240px;
+}
+
+.conteiner ul{
+    margin-top: 30px;
+    height: 45px;
+    height:fit-content;
+    margin: 0 30px 30px 30px;
+}
+
+.conteiner li{
+    background-color: #0e4b78;
+    border-radius: 30px;
+    font-size: 25px;
+    width: 176px;
+    height: 45px;
+    display: flex;
+    list-style-type: none;
+    justify-content: center;
+    align-items: center;
+    color: white;
+    text-decoration: none;
+}
+
