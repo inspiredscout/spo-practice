@@ -6,4 +6,4 @@ frontend/dist
 /data
 .env
 /backend/dist
-/backend/src/docs/swagger.json
+/backend/docs/swagger.json
