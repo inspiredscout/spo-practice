@@ -4,7 +4,7 @@ export default interface Order {
     customerName: string
     customerEmail: string
     customerPhone: string
-    customerAdress: string
+    customerAddress: string
     status: string
     orderItems: Item[]
 }

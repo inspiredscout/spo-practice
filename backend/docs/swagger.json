@@ -106,7 +106,7 @@
 					"customerPhone": {
 						"type": "string"
 					},
-					"customerAdress": {
+					"customerAddress": {
 						"type": "string"
 					},
 					"status": {
@@ -123,7 +123,7 @@
 					"customerName",
 					"customerEmail",
 					"customerPhone",
-					"customerAdress",
+					"customerAddress",
 					"status",
 					"orderItems"
 				],
@@ -192,6 +192,7 @@
 	"info": {
 		"title": "SPO_Practice-1",
 		"version": "1.0.0",
+		"description": "lfdjlgshif'kllk",
 		"license": {
 			"name": "ISC"
 		},
@@ -212,12 +213,16 @@
 											"type": "number",
 											"format": "double"
 										},
+										"success": {
+											"type": "boolean"
+										},
 										"Message": {
 											"type": "string"
 										}
 									},
 									"required": [
 										"status",
+										"success",
 										"Message"
 									],
 									"type": "object"
@@ -247,12 +252,16 @@
 											"type": "number",
 											"format": "double"
 										},
+										"success": {
+											"type": "boolean"
+										},
 										"Message": {
 											"type": "string"
 										}
 									},
 									"required": [
 										"status",
+										"success",
 										"Message"
 									],
 									"type": "object"
@@ -420,7 +429,7 @@
 				}
 			}
 		},
-		"/product": {
+		"/product/get": {
 			"get": {
 				"operationId": "GetProduct",
 				"responses": {
@@ -811,7 +820,7 @@
 					{
 						"in": "query",
 						"name": "limit",
-						"required": true,
+						"required": false,
 						"schema": {
 							"format": "double",
 							"type": "number"
@@ -1306,7 +1315,7 @@
 														"status": {
 															"type": "string"
 														},
-														"customerAdress": {
+														"customerAddress": {
 															"type": "string"
 														},
 														"customerPhone": {
@@ -1329,7 +1338,7 @@
 													},
 													"required": [
 														"status",
-														"customerAdress",
+														"customerAddress",
 														"customerPhone",
 														"customerEmail",
 														"customerName",
@@ -1388,7 +1397,7 @@
 				}
 			}
 		},
-		"/order": {
+		"/order/add": {
 			"post": {
 				"operationId": "CreateOrder",
 				"responses": {
@@ -1447,7 +1456,7 @@
 																"status": {
 																	"type": "string"
 																},
-																"customerAdress": {
+																"customerAddress": {
 																	"type": "string"
 																},
 																"customerPhone": {
@@ -1470,7 +1479,7 @@
 															},
 															"required": [
 																"status",
-																"customerAdress",
+																"customerAddress",
 																"customerPhone",
 																"customerEmail",
 																"customerName",
@@ -1533,7 +1542,9 @@
 						}
 					}
 				}
-			},
+			}
+		},
+		"/order/get": {
 			"get": {
 				"operationId": "CheckOrder",
 				"responses": {
@@ -1616,7 +1627,7 @@
 																	"status": {
 																		"type": "string"
 																	},
-																	"customerAdress": {
+																	"customerAddress": {
 																		"type": "string"
 																	},
 																	"customerPhone": {
@@ -1639,7 +1650,7 @@
 																},
 																"required": [
 																	"status",
-																	"customerAdress",
+																	"customerAddress",
 																	"customerPhone",
 																	"customerEmail",
 																	"customerName",
@@ -1738,11 +1749,167 @@
 					}
 				]
 			}
+		},
+		"/order/getAll": {
+			"get": {
+				"operationId": "GetAllOrder",
+				"responses": {
+					"200": {
+						"description": "Ok",
+						"content": {
+							"application/json": {
+								"schema": {
+									"anyOf": [
+										{
+											"properties": {
+												"status": {},
+												"allOrder": {},
+												"totalOrder": {},
+												"success": {
+													"type": "boolean"
+												},
+												"message": {
+													"type": "string"
+												}
+											},
+											"required": [
+												"success",
+												"message"
+											],
+											"type": "object"
+										},
+										{
+											"properties": {
+												"message": {},
+												"status": {
+													"type": "number",
+													"format": "double"
+												},
+												"allOrder": {
+													"items": {
+														"allOf": [
+															{
+																"properties": {
+																	"orderItems": {
+																		"items": {
+																			"properties": {
+																				"orderId": {
+																					"type": "number",
+																					"format": "double"
+																				},
+																				"productId": {
+																					"type": "number",
+																					"format": "double"
+																				},
+																				"quantity": {
+																					"type": "number",
+																					"format": "double"
+																				},
+																				"id": {
+																					"type": "number",
+																					"format": "double"
+																				}
+																			},
+																			"required": [
+																				"orderId",
+																				"productId",
+																				"quantity",
+																				"id"
+																			],
+																			"type": "object"
+																		},
+																		"type": "array"
+																	}
+																},
+																"required": [
+																	"orderItems"
+																],
+																"type": "object"
+															},
+															{
+																"properties": {
+																	"status": {
+																		"type": "string"
+																	},
+																	"customerAddress": {
+																		"type": "string"
+																	},
+																	"customerPhone": {
+																		"type": "string"
+																	},
+																	"customerEmail": {
+																		"type": "string"
+																	},
+																	"customerName": {
+																		"type": "string"
+																	},
+																	"orderDate": {
+																		"type": "string",
+																		"format": "date-time"
+																	},
+																	"id": {
+																		"type": "number",
+																		"format": "double"
+																	}
+																},
+																"required": [
+																	"status",
+																	"customerAddress",
+																	"customerPhone",
+																	"customerEmail",
+																	"customerName",
+																	"orderDate",
+																	"id"
+																],
+																"type": "object"
+															}
+														]
+													},
+													"type": "array"
+												},
+												"totalOrder": {
+													"type": "number",
+													"format": "double"
+												},
+												"success": {
+													"type": "boolean"
+												}
+											},
+											"required": [
+												"status",
+												"allOrder",
+												"totalOrder",
+												"success"
+											],
+											"type": "object"
+										}
+									]
+								}
+							}
+						}
+					}
+				},
+				"tags": [
+					"Orders"
+				],
+				"security": [],
+				"parameters": [
+					{
+						"in": "query",
+						"name": "limit",
+						"required": false,
+						"schema": {
+							"format": "double",
+							"type": "number"
+						}
+					}
+				]
+			}
 		}
 	},
 	"servers": [
 		{
-			"url": "/"
+			"url": "/api"
 		}
 	]
 }

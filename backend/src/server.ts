@@ -6,16 +6,15 @@ import swaggerJson from "../docs/swagger.json"
 
 dotenv.config()
 
-
+const apiPrefix = process.env.apiPrefix
 const app = express();
 const port = process.env.API_PORT || 3000;
 
 app.use(express.json());
 app.use(routes);
-app.use("/api/docs",
-    swaggerUi.serve,
-    swaggerUi.setup(swaggerJson))
+app.use("/api/docs",swaggerUi.serve,swaggerUi.setup(swaggerJson))
 
 app.listen(port, () => {
     console.log(`Server is running on port ${port}`);
+    console.log(`Swagger UI is available at http://localhost:${port}${apiPrefix}/docs`);
 });

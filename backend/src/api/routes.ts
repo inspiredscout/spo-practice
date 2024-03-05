@@ -1,22 +1,24 @@
-import express, { Request, Response } from "express"
+import express, { Request, Response, query, request } from "express"
 import TestController from "./controllers/TestController";
 import OrderController from "./controllers/OrderController";
 import ProductController from "./controllers/ProductController";
 
 const router = express.Router();
-router.get('/api/test/1', (_req: Request, res: Response) => {
+router.get('/api/test/1', async (_req: Request, res: Response) => {
     const controller = new TestController()
-    const response = controller.test()
+    const response = await controller.test()
+    if (!response.success && response?.status) res.status(response?.status).json(response)
     return res.json(response)
 });
 
-router.get('/api/test/2', (_req: Request, res: Response) => {
+router.get('/api/test/2', async (_req: Request, res: Response) => {
     const controller = new TestController()
-    const response = controller.test2()
+    const response = await controller.test2()
+    if (!response.success && response?.status) res.status(response?.status).json(response)
     return res.json(response)
 });
 
-router.post('/api/order/create', async (req: Request, res: Response) => {
+router.post('/api/order/add', async (req: Request, res: Response) => {
     const controller = new OrderController()
     let request = req.body
     const response = await controller.createOrder(request)
@@ -24,13 +26,20 @@ router.post('/api/order/create', async (req: Request, res: Response) => {
     return res.json(response)
 });
 
-router.get('/api/order/', async (req: Request, res: Response) => {
+router.get('/api/order/get', async (req: Request, res: Response) => {
     const controller = new OrderController()
     let request = req.body
     const response = await controller.checkOrder(request)
     if (!response.success && response?.status) res.status(response?.status).json(response)
     return res.json(response)
 });
+
+router.get('/api/order/getAll', async (req: Request, res: Response) => {
+    const controller = new OrderController()
+    const response = await controller.getAllOrder(req.query)
+    if (!response.success && response?.status) res.status(response?.status).json(response)
+    return res.json(response)
+})
 
 router.put('/api/order/:id/updateStatus', async (req: Request, res: Response) => {
     const controller = new OrderController()
@@ -39,42 +48,47 @@ router.put('/api/order/:id/updateStatus', async (req: Request, res: Response) =>
     return res.json(response)
 })
 
-router.post('/api/product/add', (req: Request, res: Response) => {
+router.post('/api/product/add', async (req: Request, res: Response) => {
     const controller = new ProductController()
     let request = req.body
-    const response = controller.addProduct(request)
+    const response = await controller.addProduct(request)
+    if (!response.success && response?.status) res.status(response?.status).json(response)
     return res.json(response)
 });
 
-router.get('/api/product/getAll', (req: Request, res: Response) => {
+router.get('/api/product/getAll', async (req: Request, res: Response) => {
+    const controller = new ProductController()
+    const response = await controller.getAllProduct(req.query)
+    if (!response.success && response?.status) res.status(response?.status).json(response)
+    return res.json(response)
+})
+
+router.get('/api/product/', async (req: Request, res: Response) => {
     const controller = new ProductController()
     let request = req.body
-    const response = controller.getAllProduct(request)
+    const response = await controller.getProduct(request)
+    if (!response.success && response?.status) res.status(response?.status).json(response)
     return res.json(response)
 })
 
-router.get('/api/product/', (req: Request, res: Response) => {
+router.get('/api/product/super', async (_req: Request, res: Response) => {
     const controller = new ProductController()
-    let request = req.body
-    const response = controller.getProduct(request)
+    const response = await controller.superGetAllProduct()
+    if (!response.success && response?.status) res.status(response?.status).json(response)
     return res.json(response)
 })
 
-router.get('/api/product/super', (_req: Request, res: Response) => {
+router.put('/api/product/:id/updateVisibility', async (req: Request, res: Response) => {
     const controller = new ProductController()
-    const response = controller.superGetAllProduct()
+    const response = await controller.updateProductVisibility(Number(req.params.id), req.body)
+    if (!response.success && response?.status) res.status(response?.status).json(response)
     return res.json(response)
 })
 
-router.put('/api/product/:id/updateVisibility', (req: Request, res: Response) => {
+router.put('/api/product/update/:id', async (req: Request, res: Response) =>{
     const controller = new ProductController()
-    const response = controller.updateProductVisibility(Number(req.params.id), req.body)
-    return res.json(response)
-})
-
-router.put('/api/product/update/:id', (req: Request, res: Response) =>{
-    const controller = new ProductController()
-    const response = controller.updateProduct(Number(req.params.id), req.body)
+    const response = await controller.updateProduct(Number(req.params.id), req.body)
+    if (!response.success && response?.status) res.status(response?.status).json(response)
     return res.json(response)
 })
 export default router;

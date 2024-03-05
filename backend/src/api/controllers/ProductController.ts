@@ -1,5 +1,4 @@
 import { db } from '../../db'
-import { Request, query } from 'express';
 import {Route, Post, Get, Put, Controller, Tags, Body, Queries, Path} from 'tsoa';
 import Product from '../../models/Product';
 import getProductQuery from '../../models/getProductQuery';
@@ -44,7 +43,7 @@ export default class ProductController extends Controller{
     }
   }
 
-  @Get("/")
+  @Get("/get")
   async getProduct(@Queries() rqst: getProductQuery) {
     try{
     const product = await db?.products.findMany({
@@ -76,9 +75,9 @@ export default class ProductController extends Controller{
 }
 
   @Get("/getAll")
-  async getAllProduct(@Queries() query: {limit:number}) {
+  async getAllProduct(@Queries() query: {limit?: number}) {
     const { limit } = query;
-    const takeLimit = limit
+    const takeLimit = limit !== undefined ? parseInt(limit.toString(), 10) : undefined;
     const allProduct = await db?.products.findMany({
         take: takeLimit,
         where:{
@@ -100,7 +99,7 @@ export default class ProductController extends Controller{
         },
     });
 
-    if (allProduct.length === 0) return {message:'Долбаеб, у нас нету товаров', success: false}
+    if (allProduct.length === 0 || !allProduct) return {message:'Долбаеб, у нас нету товаров', success: false}
     else {
         return {success: true, totalProducts, allProduct, status: 200}
     }

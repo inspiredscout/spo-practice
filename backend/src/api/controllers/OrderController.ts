@@ -29,7 +29,7 @@ export default class OrderController extends Controller {
         }
     }
 
-    @Post("/")
+    @Post("/add")
     async createOrder(@Body() orderData: Order) {
         try {
             const newOrder = await db?.order.create({
@@ -37,7 +37,7 @@ export default class OrderController extends Controller {
                     customerName: orderData.customerName,
                     customerEmail: orderData.customerEmail,
                     customerPhone: orderData.customerPhone,
-                    customerAdress: orderData.customerAdress,
+                    customerAddress: orderData.customerAddress,
                     status: orderData.status,
                     orderItems: {
                         create: orderData.orderItems.map((item: { quantity: any; productId: any; }) => ({
@@ -60,7 +60,7 @@ export default class OrderController extends Controller {
         }
     }
 
-    @Get("/")
+    @Get("/get")
     async checkOrder(@Queries() query: checkOrderQuery) {
         try {
             const findOrder = await db?.order.findMany({
@@ -70,7 +70,7 @@ export default class OrderController extends Controller {
                         {customerName: query.customerName},
                         {customerEmail: query.customerEmail},
                         {customerPhone: query.customerPhone},
-                        {customerAdress: query.customerAdress}
+                        {customerAddress: query.customerAdress}
                     ],
                 },
                 include: {
@@ -87,5 +87,23 @@ export default class OrderController extends Controller {
         }
     }
 
+    @Get("/getAll")
+    async getAllOrder(@Queries() query: {limit?: number}) {
+        const { limit } = query;
+        const takeLimit = limit !== undefined ? parseInt(limit.toString(), 10) : undefined;
+        const allOrder = await db?.order.findMany({
+            take: takeLimit,
+            include: {
+                orderItems: true
+            }
+    })
+        const totalOrder = await db?.order.count({
+        });
+    
+        if (allOrder.length === 0 || !allOrder) return {message:'Долбаеб, у нас нету товаров', success: false}
+        else {
+            return {success: true, totalOrder, allOrder, status: 200}
+        }
+    }
 
 }
