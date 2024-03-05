@@ -5,4 +5,5 @@ frontend/dist
 /backend/prisma/migrations
 /data
 .env
-backend/dist
+/backend/dist
+/backend/src/docs/swagger.json
