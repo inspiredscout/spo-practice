@@ -6,13 +6,33 @@ function Catalog() {
 
             <header>
                 <nav className={styles.navbar}>
-                    <img src='./logo.svg' alt=''/>
+                    <div className={styles.logo}>
+                        <img src='./logo.svg' alt=''/>
+
+                    </div>
+
                     <div className={styles.conteiner}>
-                        <ul>
-                            <Link to='/'>
-                                <li>Home</li>
-                            </Link>
-                        </ul>
+                        <div className={styles.contact}>
+                            <div className={styles.social}>
+                                <a href='https://www.youtube.com/watch?v=dQw4w9WgXcQ'><img src='./Inst.svg' alt=''/></a>
+                                <a href='https://www.youtube.com/watch?v=johcE5s525M'><img src='./VK.svg' alt=''/></a>
+                                <a href='https://www.youtube.com/watch?v=lqdueOTo5UA'><img src='./Telegram.svg' alt=''/></a>
+                            </div>
+
+                            <div className={styles.phone}>
+                                <img src='./Phone.png'/>
+                                <p>+7 123 456 14 88</p>
+                            </div>
+                        </div>
+
+                        <div className={styles.conteiner}>
+                            <ul>
+                                <Link to='/'>
+                                    <li>Home</li>
+                                </Link>
+                            </ul>
+                        </div>
+
                     </div>
                 </nav>
             </header>
@@ -40,7 +60,7 @@ function Catalog() {
                     <div className={styles.position}>
                         <Link to='/Catalog/info'>
                             <div className={styles.image}>
-                                <img src='./1.jpg' alt=''/>
+                            <img src='./1.jpg' alt=''/>
                             </div>
                         </Link>
 

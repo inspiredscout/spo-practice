@@ -13,6 +13,14 @@
     background-position: top;
     max-width: 2560px;
     height: 250px;
+    justify-content: space-between;
+}
+
+.logo img{
+    display: flex;
+    height: 89px;
+    height: fit-content;
+    margin: 77px 0 77px 240px;
 }
 
 .conteiner{
@@ -21,21 +29,23 @@
     text-align: center;
     height: fit-content;
     height: 294px;
+    margin-top: 20px;
+    margin-left: 140px;
 }
 
-.navbar img{
-    display: flex;
+.conteiner img{
+    display: inline-block;
     height: 89px;
     height: fit-content;
-    margin: 77px 0 77px 240px;
+
+
 }
 
 .conteiner ul{
     margin-top: 30px;
-    display: flex;
+    display: inline-block;
     height: 45px;
     height:fit-content;
-
 }
 
 .conteiner li{
@@ -50,6 +60,44 @@
     align-items: center;
     color: white;
     text-decoration: none;
+}
+
+.conteiner p{
+    color: white;
+    font-size: 25px;
+    text-align: center;
+    align-items: center;
+    margin-top: 40px;
+    height: 90px;
+    height:fit-content ;
+}
+
+.contact{
+    display: flex;
+    flex-direction: column;
+    padding: 25px;
+    color: white;
+    align-items: flex-end;
+    height: fit-content;
+}
+
+.social img{
+    margin: 0 10px;
+}
+
+.phone{
+    display: flex;
+}
+
+.phone img{
+    width: 25px;
+    height: 25px;
+    margin: 11.5px -12px;
+}
+
+.contact p{
+    font-size: 18px;
+    margin: 12.5px 12.5px;
 }
 
 .catalog{
