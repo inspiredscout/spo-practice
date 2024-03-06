@@ -1,7 +1,7 @@
 export interface Card{
     id: number;
     name: string;
-    price: number;
+    price: string;
 }
 
 export interface CardParams{

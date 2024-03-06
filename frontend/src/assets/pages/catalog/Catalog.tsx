@@ -1,6 +1,17 @@
 import styles from './Catalog.module.css'
 import {Link} from "react-router-dom";
-function Catalog() {
+import {Card} from "./Catalog.data.ts";
+import {useEffect, useState} from "react";
+import {getCardList} from "./Api.ts";
+
+
+export const Catalog = (): JSX.Element =>{
+    const [list, setList] = useState<Card[] | []>([]);
+    useEffect(() => {
+        getCardList()
+        .then(setList)
+        .catch(() => setList([]));
+    }, [])
     return(
         <main>
 
@@ -141,5 +152,3 @@ function Catalog() {
         </main>
     )
 }
-
-export default Catalog

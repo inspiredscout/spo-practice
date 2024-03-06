@@ -11,7 +11,7 @@ function Home() {
                         <img src='./logo.svg' alt=''/>
                         <p>A convenient store with a<br/> bunch of goods for your<br/> car.</p>
                         <ul>
-                            <Link to='Catalog'>
+                            <Link style={{textDecoration: 'none'}} to='Catalog'>
                                 <li>Catalog</li>
                             </Link>
                         </ul>
