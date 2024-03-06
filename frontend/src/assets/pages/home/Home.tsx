@@ -19,9 +19,9 @@ function Home() {
 
                     <div className={styles.contact}>
                         <div className={styles.social}>
-                            <a href='https://www.youtube.com/watch?v=dQw4w9WgXcQ'><img src='./Inst.svg' alt=''/></a>
-                            <a href='https://www.youtube.com/watch?v=johcE5s525M'><img src='./VK.svg' alt=''/></a>
-                            <a href='https://www.youtube.com/watch?v=lqdueOTo5UA'><img src='./Telegram.svg' alt=''/></a>
+                            <Link to='https://www.youtube.com/watch?v=dQw4w9WgXcQ'><img src='./Inst.svg' alt=''/></Link>
+                            <Link to='https://www.youtube.com/watch?v=johcE5s525M'><img src='./VK.svg' alt=''/></Link>
+                            <Link to ='https://www.youtube.com/watch?v=88EySRVKOnk'><img src='./Telegram.svg' alt=''/></Link>
                         </div>
 
                         <div className={styles.phone}>
