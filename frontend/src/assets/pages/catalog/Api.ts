@@ -1,10 +1,10 @@
 import {Card} from './Catalog.data.ts'
 
-export const getCardList = (): Promise<Card> =>
-    fetch('http://localhost:3000/api')
-        .then(result => {
+export const getCardList = (): Promise<Card[]> =>
+     fetch('https://randomuser.me/api/')
+        .then(async (result) => {
             if (result.ok) {
-                return result.json().then(data => data as Card)
+                return (await result.json()) as Card[]
             } else {
                 throw new Error(result.statusText)
             }

@@ -9,13 +9,13 @@ function Backet(){
                     <img src='./logo.svg' alt=''/>
                     <div className={styles.conteiner}>
                         <ul>
-                            <Link to='/'>
+                            <Link style={{textDecoration: 'none'}} to='/'>
                                 <li>Home</li>
                             </Link>
                         </ul>
 
                         <ul>
-                            <Link to='/Catalog'>
+                            <Link style={{textDecoration: 'none'}} to='/Catalog'>
                                 <li>Catalog</li>
                             </Link>
                         </ul>

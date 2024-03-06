@@ -6,10 +6,10 @@ import {getCardList} from "./Api.ts";
 
 
 export const Catalog = (): JSX.Element =>{
-    const [list, setList] = useState<Card[] | []>([]);
+    const [list, setList] = useState<Card[] >([]);
     useEffect(() => {
         getCardList()
-        .then(setList)
+        .then((popa) => setList(popa))
         .catch(() => setList([]));
     }, [])
     return(
@@ -35,7 +35,6 @@ export const Catalog = (): JSX.Element =>{
                                 <p>+7 123 456 14 88</p>
                             </div>
                         </div>
-
 
                         <div className={styles.button}>
                             <ul>
