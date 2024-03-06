@@ -13,6 +13,7 @@
     background-position: top;
     max-width: 2560px;
     height: 250px;
+    justify-content: space-between;
 }
 
 .logo img{
@@ -22,53 +23,11 @@
     margin: 77px 0 77px 240px;
 }
 
-.conteiner{
-    flex-direction: column;
-    justify-content: center;
-    text-align: center;
-    height: fit-content;
-    height: 294px;
-    margin-top: 20px;
-    margin-left: 140px;
-}
-
-.conteiner img{
-    display: inline-block;
-    height: 89px;
-    height: fit-content;
-
-
-}
-
-.conteiner ul{
-    margin-top: 30px;
-    display: inline-block;
-    height: 45px;
-    height:fit-content;
-}
-
-.conteiner li{
-    background-color: #0e4b78;
-    border-radius: 30px;
-    font-size: 25px;
-    width: 176px;
-    height: 45px;
+.rightpanel{
     display: flex;
-    list-style-type: none;
-    justify-content: center;
-    align-items: center;
-    color: white;
-    text-decoration: none;
-}
+    flex-direction: column;
+    justify-content: space-between;
 
-.conteiner p{
-    color: white;
-    font-size: 25px;
-    text-align: center;
-    align-items: center;
-    margin-top: 40px;
-    height: 90px;
-    height:fit-content ;
 }
 
 .contact{
@@ -98,6 +57,40 @@
     font-size: 18px;
     margin: 12.5px 12.5px;
 }
+
+.button{
+    display: flex;
+    padding: 0px 25px 25px 0;
+}
+
+.button ul{
+    margin-left: 30px;
+}
+
+.button li{
+    background-color: #0e4b78;
+    border-radius: 30px;
+    font-size: 25px;
+    width: 176px;
+    height: 45px;
+    display: flex;
+    list-style-type: none;
+    justify-content: center;
+    align-items: center;
+    color: white;
+    text-decoration: none;
+}
+
+
+
+
+
+
+
+
+
+
+
 
 .catalog{
     display: flex;

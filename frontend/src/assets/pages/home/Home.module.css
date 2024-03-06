@@ -165,3 +165,40 @@
 
 }
 
+@media screen and (width < 500px) {
+    .navbar{
+        height: 300px;
+    }
+    .conteiner{
+        padding-top: 40px;
+        justify-content: flex-start;
+        width: 190px;
+    }
+
+    .conteiner img{
+        width: 170px;
+        height: 80px;
+    }
+
+    .conteiner p{
+        padding-top: 20px;
+        font-size: 15px;
+    }
+
+
+    .conteiner ul{
+        padding-top: 20px;
+    }
+
+    .conteiner li{
+        border-radius: 30px;
+        font-size: 15px;
+        width: 100px;
+        height: 35px;
+    }
+
+    .contact{
+
+    }
+}
+

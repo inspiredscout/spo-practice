@@ -22,13 +22,31 @@ export const Catalog = (): JSX.Element =>{
 
                     </div>
 
-                        <div className={styles.conteiner}>
+                    <div className={styles.rightpanel}>
+                        <div className={styles.contact}>
+                            <div className={styles.social}>
+                                <a href='https://www.youtube.com/watch?v=dQw4w9WgXcQ'><img src='./Inst.svg' alt=''/></a>
+                                <a href='https://www.youtube.com/watch?v=johcE5s525M'><img src='./VK.svg' alt=''/></a>
+                                <a href='https://www.youtube.com/watch?v=lqdueOTo5UA'><img src='./Telegram.svg' alt=''/></a>
+                            </div>
+
+                            <div className={styles.phone}>
+                                <img src='./Phone.png'/>
+                                <p>+7 123 456 14 88</p>
+                            </div>
+                        </div>
+
+
+                        <div className={styles.button}>
                             <ul>
-                                <Link to='/'>
-                                    <li>Home</li>
-                                </Link>
+                                <Link style={{textDecoration: 'none'}} to='/'> <li>Home</li> </Link>
+                            </ul>
+
+                            <ul>
+                                <Link style={{textDecoration: 'none'}} to='/Backet'> <li>Backet</li> </Link>
                             </ul>
                         </div>
+                    </div>
 
                 </nav>
             </header>
@@ -56,7 +74,7 @@ export const Catalog = (): JSX.Element =>{
                     <div className={styles.position}>
                         <Link to='/Catalog/info'>
                             <div className={styles.image}>
-                            <img src='./1.jpg' alt=''/>
+                                <img src='./1.jpg' alt=''/>
                             </div>
                         </Link>
 
