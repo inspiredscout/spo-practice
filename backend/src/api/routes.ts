@@ -1,4 +1,4 @@
-import express, { Request, Response, query, request } from "express"
+import express, { Request, Response } from "express"
 import TestController from "./controllers/TestController";
 import OrderController from "./controllers/OrderController";
 import ProductController from "./controllers/ProductController";

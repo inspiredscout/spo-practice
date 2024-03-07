@@ -3,7 +3,7 @@ import { db } from '../../db'
 import Order from "../../models/Order";
 import checkOrderQuery from '../../models/checkOrderQuery';
 
-@Route("order")
+    @Route("order")
 @Tags("Orders")
 export default class OrderController extends Controller {
 
