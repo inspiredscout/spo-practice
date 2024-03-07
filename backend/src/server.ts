@@ -18,7 +18,7 @@ const main = () => {
     app.listen(port)
         .on("listening", () => {
             console.log(`Server is running on port ${port}`);
-            console.log(`Swagger UI is available at http://0.0.0.0:${port}${apiPrefix}/docs`);
+            console.log(`Swagger UI is available at http://0.0.0.0:${port}${process.env.DOCS_PATH}`);
         })
         .on("error", () => {
             console.error(`Port ${port} is already in use trying another one...`)
