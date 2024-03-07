@@ -2,7 +2,6 @@ version: '3.9'
 services:
   db:
     image: postgres:latest
-    restart: always
     ports:
       - "5432:5432"
     env_file:
@@ -18,10 +17,11 @@ services:
       start_period: 1s
 
   backend:
-    restart: always
     build:
       context: ./backend
       dockerfile: Dockerfile
+    ports:
+      - ${API_PORT}:${API_PORT}
     env_file:
       - .env
     depends_on:
@@ -29,16 +29,15 @@ services:
         condition: service_healthy
   #только сбилдит
   frontend:
-    restart: always
     build:
       context: ./frontend
       dockerfile: Dockerfile
     volumes:
       - ./static:/app/dist
   proxy:
-    restart: always
     image: nginx:latest
-    container_name: spo-proxy
+    ports:
+      - "8000:80"
     env_file:
       - .env
     volumes:
@@ -46,11 +45,3 @@ services:
       - ./nginx/default.conf.template:/etc/nginx/conf.d/default.conf.template
       - ./nginx/run_nginx.sh:/src/run_nginx.sh
     command: ./src/run_nginx.sh
-    depends_on:
-      - backend
-    networks:
-      - nginx-network
-      - default
-networks:
-  nginx-network:
-    external: true

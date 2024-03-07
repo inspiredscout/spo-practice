@@ -1,7 +1,9 @@
 /*/node_modules
 /.idea
-backend/.env
-SPA/dist
+.env
+frontend/dist
 /backend/prisma/migrations
 /data
-/backend/src/docs/swagger.json
+/backend/dist
+/backend/docs/swagger.json
+/static
