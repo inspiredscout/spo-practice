@@ -1,9 +1,8 @@
-
 import express from "express"
-import http from "http"
 import routes from "./api/routes"
 import swaggerUi from "swagger-ui-express"
 import * as dotenv from "dotenv"
+import swaggerJson from "../docs/swagger.json"
 
 dotenv.config({path: "../.env"})
 
