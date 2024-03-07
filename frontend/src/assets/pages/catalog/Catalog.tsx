@@ -19,7 +19,6 @@ export const Catalog = (): JSX.Element =>{
                 <nav className={styles.navbar}>
                     <div className={styles.logo}>
                         <img src='./logo.svg' alt=''/>
-
                     </div>
 
                     <div className={styles.rightpanel}>

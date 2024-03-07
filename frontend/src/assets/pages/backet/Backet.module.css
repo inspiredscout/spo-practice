@@ -14,31 +14,65 @@
     max-width: 2560px;
     height: 250px;
     justify-content: space-between;
-    background-repeat: no-repeat;
 }
 
-.conteiner{
-    display: flex;
-    justify-content: center;
-    text-align: center;
-    align-items: flex-end;
-}
-
-.navbar img{
-    display: flex;
+.logo img{
     height: 89px;
     height: fit-content;
-    margin: 77px 0 77px 240px;
 }
 
-.conteiner ul{
-    margin-top: 30px;
-    height: 45px;
-    height:fit-content;
-    margin: 0 30px 30px 30px;
+.logo{
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    width: 600px;
 }
 
-.conteiner li{
+.rightpanel{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+
+}
+
+.contact{
+    display: flex;
+    flex-direction: column;
+    padding: 25px;
+    color: white;
+    align-items: flex-end;
+    height: fit-content;
+}
+
+.social img{
+    margin: 0 10px;
+}
+
+.phone{
+    display: flex;
+}
+
+.phone img{
+    width: 25px;
+    height: 25px;
+    margin: 11.5px -12px;
+}
+
+.contact p{
+    font-size: 18px;
+    margin: 12.5px 12.5px;
+}
+
+.button{
+    display: flex;
+    padding: 0px 30px 30px 0;
+}
+
+.button ul{
+    margin-left: 30px;
+}
+
+.button li{
     background-color: #0e4b78;
     border-radius: 30px;
     font-size: 25px;

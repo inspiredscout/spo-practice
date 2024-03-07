@@ -17,15 +17,16 @@
 }
 
 .logo img{
-    display: flex;
     height: 89px;
     height: fit-content;
 
 }
 
 .logo{
+    justify-content: flex-end;
+    align-items: center;
+    display: flex;
     width: 600px;
-    justify-content: center;
 }
 
 .rightpanel{
