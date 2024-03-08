@@ -1,17 +1,7 @@
 import styles from './Catalog.module.css'
 import {Link} from "react-router-dom";
-import {Card} from "./CatalogData.ts";
-import {useEffect, useState} from "react";
-import {getCardList} from "./Api.ts";
 
-
-export const Catalog = (): JSX.Element =>{
-    const [list, setList] = useState<Card[] >([]);
-    useEffect(() => {
-        getCardList()
-        .then((popa) => setList(popa))
-        .catch(() => setList([]));
-    }, [])
+function Catalog() {
     return(
         <main>
 
@@ -77,17 +67,20 @@ export const Catalog = (): JSX.Element =>{
                         </Link>
 
                         <div className={styles.info}>
-                            <h3>Name</h3>
-                            <p>Price</p>
-                            <button>Add</button>
+                            <div id="title">
+                                <h3>Name</h3>
+                                <p>Price</p>
+                                <button>Add</button>
+                            </div>
                         </div>
                     </div>
 
                     <div className={styles.position}>
-                        <div className={styles.image}>
+                    <div className={styles.image}>
                             <img src='./1.jpg' alt=''/>
                         </div>
                         <div className={styles.info}>
+
                             <h3>Name</h3>
                             <p>Price</p>
                             <button>Add</button>
@@ -168,3 +161,5 @@ export const Catalog = (): JSX.Element =>{
         </main>
     )
 }
+
+export default Catalog
