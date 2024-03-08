@@ -1,6 +1,6 @@
 import styles from './Catalog.module.css'
 import {Link} from "react-router-dom";
-import {Card} from "./Catalog.data.ts";
+import {Card} from "./CatalogData.ts";
 import {useEffect, useState} from "react";
 import {getCardList} from "./Api.ts";
 

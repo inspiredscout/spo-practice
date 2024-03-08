@@ -1,4 +1,4 @@
-import {Card} from './Catalog.data.ts'
+import {Card} from './CatalogData.ts'
 
 export const getCardList = (): Promise<Card[]> =>
      fetch('https://randomuser.me/api/')

@@ -85,6 +85,12 @@
     align-items: center;
     color: white;
     text-decoration: none;
+    cursor: pointer;
+    transition: background-color 0.3s
+}
+
+.button li:hover{
+    background-color: #0b3e64;
 }
 
 
