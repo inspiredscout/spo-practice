@@ -1,7 +1,7 @@
 import React from 'react'
 import ReactDOM from 'react-dom/client'
 import Home from "./assets/pages/home/Home.tsx";
-import {Catalog} from "./assets/pages/catalog/Catalog.tsx";
+import Catalog from "./assets/pages/catalog/Catalog.tsx";
 import Card from './assets/pages/cards/Card.tsx'
 import Backet from "./assets/pages/backet/Backet.tsx";
 import {BrowserRouter as Router, Route, Routes} from "react-router-dom";

@@ -1,10 +1,34 @@
-import styles from './Catalog.module.css'
-import {Link} from "react-router-dom";
+import React, { useEffect, useState } from 'react';
+import { Link } from 'react-router-dom';
+import styles from './Catalog.module.css';
+import {fetchData} from "./CatalogData.ts";
 
-function Catalog() {
-    return(
+interface UserData{
+    name: {
+        title: string;
+        first: string;
+        last: string;
+    };
+}
+
+const Catalog: React.FC = () => {
+    const [data, setData] = useState<UserData[]>([]); // Предположим, что данные хранятся в массиве
+
+    useEffect(() => {
+        const fetchDataBooba = async () => {
+            try {
+                const result = await fetchData(); // Использование функции для получения данных из базы данных
+                setData(result); // Установка полученных данных в состояние
+            } catch (error) {
+                console.error('Ошибка при получении данных:', error);
+            }
+        };
+
+        fetchDataBooba();
+    }, []);
+
+    return (
         <main>
-
             <header>
                 <nav className={styles.navbar}>
                     <div className={styles.logo}>
@@ -14,24 +38,31 @@ function Catalog() {
                     <div className={styles.rightpanel}>
                         <div className={styles.contact}>
                             <div className={styles.social}>
-                                <Link to='https://www.youtube.com/watch?v=dQw4w9WgXcQ'><img src='./Inst.svg' alt=''/></Link>
-                                <Link to='https://www.youtube.com/watch?v=johcE5s525M'><img src='./VK.svg' alt=''/></Link>
-                                <Link to ='https://www.youtube.com/watch?v=88EySRVKOnk'><img src='./Telegram.svg' alt=''/></Link>
+                                <Link to='https://www.youtube.com/watch?v=dQw4w9WgXcQ'><img src='./Inst.svg'
+                                                                                            alt=''/></Link>
+                                <Link to='https://www.youtube.com/watch?v=johcE5s525M'><img src='./VK.svg'
+                                                                                            alt=''/></Link>
+                                <Link to='https://www.youtube.com/watch?v=88EySRVKOnk'><img src='./Telegram.svg'
+                                                                                            alt=''/></Link>
                             </div>
 
                             <div className={styles.phone}>
-                                <img src='./Phone.png'/>
+                                <img src='./Phone.png' alt=''/>
                                 <p>+7 123 456 14 88</p>
                             </div>
                         </div>
 
                         <div className={styles.button}>
                             <ul>
-                                <Link style={{textDecoration: 'none'}} to='/'> <li>Home</li> </Link>
+                                <Link style={{textDecoration: 'none'}} to='/'>
+                                    <li>Home</li>
+                                </Link>
                             </ul>
 
                             <ul>
-                                <Link style={{textDecoration: 'none'}} to='/Backet'> <li>Backet</li> </Link>
+                                <Link style={{textDecoration: 'none'}} to='/Backet'>
+                                    <li>Backet</li>
+                                </Link>
                             </ul>
                         </div>
                     </div>
@@ -67,16 +98,20 @@ function Catalog() {
                         </Link>
 
                         <div className={styles.info}>
-                            <div id="title">
-                                <h3>Name</h3>
-                                <p>Price</p>
-                                <button>Add</button>
-                            </div>
+                            {data ? (
+                                <div>
+                                    {data.map((userData, index) => (
+                                        <h3 key={index}>{userData.name.title} {userData.name.first} {userData.name.last}</h3>
+                                    ))}
+                                </div>
+                            ) : (
+                                <div>Loading...</div>
+                            )}
                         </div>
                     </div>
 
                     <div className={styles.position}>
-                    <div className={styles.image}>
+                        <div className={styles.image}>
                             <img src='./1.jpg' alt=''/>
                         </div>
                         <div className={styles.info}>
@@ -157,9 +192,8 @@ function Catalog() {
 
 
             </div>
-
         </main>
-    )
-}
+    );
+};
 
-export default Catalog
+export default Catalog;
