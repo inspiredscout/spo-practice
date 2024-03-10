@@ -100,102 +100,63 @@ const Catalog: React.FC = () => {
                             ) : (
                                 <div>Loading...</div>
                             )}
-                        </div>
-                    </div>
 
-                    <div className={styles.position}>
-                        <div className={styles.image}>
-                            <img src={'./1.jpg'} alt=''/>
+                            <div className={styles.priceAndButton}>
+                                <p>Price: {Math.floor(Math.random() * 50) * 1000 + 5000}</p>
+                                <button className={styles.addButton}>Add</button>
+                            </div>
                         </div>
+
+                    </div>
+                    <div className={styles.position}>
+                        <Link to='/Catalog/info'>
+                            <div className={styles.image}>
+                                <img src='./1.jpg' alt=''/>
+                            </div>
+                        </Link>
+
                         <div className={styles.info}>
                             {data ? (
                                 <div>
                                     {data.map((userData, index) => (
-                                        <h3 key={index}>{userData.name}</h3>
+                                        <h3 key={index}>{userData.name.title} {userData.name.first} {userData.name.last}</h3>
                                     ))}
                                 </div>
                             ) : (
                                 <div>Loading...</div>
                             )}
-                        </div>
-                    </div>
 
-                    <div className={styles.position}>
-                        <div className={styles.image}>
-                            <img src={'./1.jpg'} alt=''/>
+                            <div className={styles.priceAndButton}>
+                                <p>Price: {Math.floor(Math.random() * 50) * 1000 + 5000}</p>
+                                <button className={styles.addButton}>Add</button>
+                            </div>
                         </div>
+
+                    </div>
+                    <div className={styles.position}>
+                        <Link to='/Catalog/info'>
+                            <div className={styles.image}>
+                                <img src='./1.jpg' alt=''/>
+                            </div>
+                        </Link>
+
                         <div className={styles.info}>
                             {data ? (
                                 <div>
                                     {data.map((userData, index) => (
-                                        <h3 key={index}>{userData.name}</h3>
+                                        <h3 key={index}>{userData.name.title} {userData.name.first} {userData.name.last}</h3>
                                     ))}
                                 </div>
                             ) : (
                                 <div>Loading...</div>
                             )}
-                        </div>
-                    </div>
 
-                    <div className={styles.position}>
-                        <div className={styles.image}>
-                            <img src={'./1.jpg'} alt=''/>
+                            <div className={styles.priceAndButton}>
+                                <p>Price: {Math.floor(Math.random() * 50) * 1000 + 5000}</p>
+                                <button className={styles.addButton}>Add</button>
+                            </div>
                         </div>
-                        <div className={styles.info}>
-                            {data ? (
-                                <div>
-                                    {data.map((userData, index) => (
-                                        <h3 key={index}>{userData.name}</h3>
-                                    ))}
-                                </div>
-                            ) : (
-                                <div>Loading...</div>
-                            )}
-                        </div>
-                    </div>
 
-                    <div className={styles.position}>
-                        <div className={styles.image}>
-                            <img src={'./1.jpg'} alt=''/>
-                        </div>
-                        <div className={styles.info}>
-                            <h3>Name</h3>
-                            <p>Price</p>
-                            <button>Add</button>
-                        </div>
-                    </div>
-
-                    <div className={styles.position}>
-                        <div className={styles.image}>
-                            <img src={'./1.jpg'} alt=''/>
-                        </div>
-                        <div className={styles.info}>
-                            <h3>Name</h3>
-                            <p>Price</p>
-                            <button>Add</button>
-                        </div>
-                    </div>
-
-                    <div className={styles.position}>
-                        <div className={styles.image}>
-                            <img src={'./1.jpg'} alt=''/>
-                        </div>
-                        <div className={styles.info}>
-                            <h3>Name</h3>
-                            <p>Price</p>
-                            <button>Add</button>
-                        </div>
-                    </div>
-
-                    <div className={styles.position}>
-                        <div className={styles.image}>
-                            <img src={'./1.jpg'} alt=''/>
-                        </div>
-                        <div className={styles.info}>
-                            <h3>Name</h3>
-                            <p>Price</p>
-                            <button>Add</button>
-                        </div>
                     </div>
 
                 </div>
