@@ -37,6 +37,7 @@
     "typescript": "^5.3.3"
   },
   "dependencies": {
+    "@hapi/boom": "^10.0.1",
     "@prisma/client": "^5.10.2",
     "body-parser": "^1.20.2",
     "dotenv": "^16.4.5",

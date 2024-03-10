@@ -19,6 +19,8 @@ services:
 
   backend:
     restart: always
+    ports:
+      - "${API_PORT}:${API_PORT}"
     build:
       context: ./backend
       dockerfile: Dockerfile
