@@ -1,14 +1,16 @@
+/* Общие стили */
 @import url('https://fonts.googleapis.com/css2?family=Jura:wght@300..700&display=swap');
 
-*{
+* {
     padding: 0;
     margin: 0;
-    font-family: Jura;
+    font-family: 'Jura', sans-serif;
 }
-/*Шапка страницы каталог*/
-.navbar{
+
+/* Шапка страницы корзина */
+.navbar {
     display: flex;
-    background-image: url("../../../../public/catalog-header.png");
+    background-image: url("../../../../../../../Downloads/spo-practice-front-end/frontend/public/catalog-header.png");
     background-size: cover;
     background-position: top;
     max-width: 2560px;
@@ -16,26 +18,25 @@
     justify-content: space-between;
 }
 
-.logo img{
+.logo img {
     height: 89px;
     height: fit-content;
 }
 
-.logo{
+.logo {
     display: flex;
     justify-content: flex-end;
     align-items: center;
     width: 600px;
 }
 
-.rightpanel{
+.rightpanel {
     display: flex;
     flex-direction: column;
     justify-content: space-between;
-
 }
 
-.contact{
+.contact {
     display: flex;
     flex-direction: column;
     padding: 25px;
@@ -44,35 +45,35 @@
     height: fit-content;
 }
 
-.social img{
+.social img {
     margin: 0 10px;
 }
 
-.phone{
+.phone {
     display: flex;
 }
 
-.phone img{
+.phone img {
     width: 25px;
     height: 25px;
     margin: 11.5px -12px;
 }
 
-.contact p{
+.contact p {
     font-size: 18px;
     margin: 12.5px 12.5px;
 }
 
-.button{
+.button {
     display: flex;
     padding: 0px 30px 30px 0;
 }
 
-.button ul{
+.button ul {
     margin-left: 30px;
 }
 
-.button li{
+.button li {
     background-color: #0e4b78;
     border-radius: 30px;
     font-size: 25px;
@@ -88,6 +89,85 @@
     transition: background-color 0.3s
 }
 
-.button li:hover{
+.button li:hover {
     background-color: #0b3e64;
+}
+
+/* Фильтры и выбор бренда */
+.catalog {
+    display: flex;
+}
+
+.filters {
+    display: flex;
+    width: fit-content;
+    text-align: left;
+    margin-top: 90px;
+    border-right: solid 1px gray;
+    flex-direction: column;
+}
+
+.filters li {
+    font-size: 25px;
+    list-style-type: none;
+    margin: 0 25px 25px 25px;
+}
+
+.brands h1 {
+    font-size: 30px;
+    margin: 27px 0 40px 0;
+}
+
+/* Карточка товара */
+.cards {
+    display: flex;
+    margin: 90px 0 0 200px;
+    flex-wrap: wrap;
+}
+
+.position{
+    height: 240px;
+    display: flex;
+    flex-direction: column;
+    margin-right: 75px;
+}
+
+.image img {
+    width: 200px;
+    height: 200px;
+    border: solid 1px gray;
+}
+
+.details{
+    display: flex;
+    flex-direction: row;
+}
+
+.productInfo {
+    margin-bottom: 10px; /* Добавим небольшое расстояние между названием и ценой */
+}
+
+.counter {
+    display: flex;
+    align-items: center;
+
+}
+
+.counterButton {
+    background-color: #0e4b78;
+    color: white;
+    border: none;
+    padding: 5px 10px;
+    font-size: 14px;
+    cursor: pointer;
+    border-radius: 5px;
+    margin: 5px 5px;
+}
+
+.counterButton:hover {
+    background-color: #0b3e64;
+}
+
+.counterValue {
+    font-size: 18px;
 }
