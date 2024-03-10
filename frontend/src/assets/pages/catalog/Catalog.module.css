@@ -8,7 +8,7 @@
 /*Шапка страницы каталог*/
 .navbar{
     display: flex;
-    background-image: url("../../../../public/catalog-header.png");
+    background-image: url("../../../../../../../Downloads/spo-practice-front-end/frontend/public/catalog-header.png");
     background-size: cover;
     background-position: top;
     max-width: 2560px;
@@ -64,6 +64,17 @@
     margin: 12.5px 12.5px;
 }
 
+.priceAndButton {
+    display: flex; /* Размещение элементов в строку */
+    align-items: center; /* Выравнивание элементов по вертикали */
+    justify-content: space-between; /* Равномерное распределение элементов по горизонтали */
+}
+
+.priceAndButton p {
+    margin: 0; /* Убираем отступы */
+}
+
+
 .button{
     display: flex;
     padding: 0px 30px 30px 0;
@@ -93,17 +104,22 @@
     background-color: #0b3e64;
 }
 
+.addButton {
+    background-color: #0e4b78;
+    color: white;
+    border: none;
+    padding: 5px 25px;
+    font-size: 14px;
+    cursor: pointer;
+    border-radius: 5px;
+    margin: 5px 5px;
+}
 
+.addButton:hover {
+    background-color: #0b3e64;
+}
 
-
-
-
-
-
-
-
-
-
+/*Фильтры и выбор бренда*/
 .catalog{
     display: flex;
 }
@@ -154,7 +170,7 @@
     border: solid 1px gray;
 }
 
-.info{
+.details{
     display: flex;
     flex-direction: row;
 }

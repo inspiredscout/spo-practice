@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 import styles from './Catalog.module.css';
-import {fetchData} from "./CatalogData.ts";
+import {fetchData} from "../../../../../../../Downloads/spo-practice-front-end/frontend/src/assets/pages/catalog/CatalogData.ts";
 
 interface UserData{
     name: {
@@ -90,6 +90,8 @@ const Catalog: React.FC = () => {
                 </div>
 
                 <div className={styles.cards}>
+
+
                     <div className={styles.position}>
                         <Link to='/Catalog/info'>
                             <div className={styles.image}>
@@ -107,85 +109,63 @@ const Catalog: React.FC = () => {
                             ) : (
                                 <div>Loading...</div>
                             )}
+
+                            <div className={styles.priceAndButton}>
+                                <p>Price: {Math.floor(Math.random() * 50) * 1000 + 5000}</p>
+                                <button className={styles.addButton}>Add</button>
+                            </div>
                         </div>
+
                     </div>
-
                     <div className={styles.position}>
-                        <div className={styles.image}>
-                            <img src='./1.jpg' alt=''/>
-                        </div>
-                        <div className={styles.info}>
+                        <Link to='/Catalog/info'>
+                            <div className={styles.image}>
+                                <img src='./1.jpg' alt=''/>
+                            </div>
+                        </Link>
 
-                            <h3>Name</h3>
-                            <p>Price</p>
-                            <button>Add</button>
+                        <div className={styles.info}>
+                            {data ? (
+                                <div>
+                                    {data.map((userData, index) => (
+                                        <h3 key={index}>{userData.name.title} {userData.name.first} {userData.name.last}</h3>
+                                    ))}
+                                </div>
+                            ) : (
+                                <div>Loading...</div>
+                            )}
+
+                            <div className={styles.priceAndButton}>
+                                <p>Price: {Math.floor(Math.random() * 50) * 1000 + 5000}</p>
+                                <button className={styles.addButton}>Add</button>
+                            </div>
                         </div>
+
                     </div>
-
                     <div className={styles.position}>
-                        <div className={styles.image}>
-                            <img src='./1.jpg' alt=''/>
-                        </div>
-                        <div className={styles.info}>
-                            <h3>Name</h3>
-                            <p>Price</p>
-                            <button>Add</button>
-                        </div>
-                    </div>
+                        <Link to='/Catalog/info'>
+                            <div className={styles.image}>
+                                <img src='./1.jpg' alt=''/>
+                            </div>
+                        </Link>
 
-                    <div className={styles.position}>
-                        <div className={styles.image}>
-                            <img src='./1.jpg' alt=''/>
-                        </div>
                         <div className={styles.info}>
-                            <h3>Name</h3>
-                            <p>Price</p>
-                            <button>Add</button>
-                        </div>
-                    </div>
+                            {data ? (
+                                <div>
+                                    {data.map((userData, index) => (
+                                        <h3 key={index}>{userData.name.title} {userData.name.first} {userData.name.last}</h3>
+                                    ))}
+                                </div>
+                            ) : (
+                                <div>Loading...</div>
+                            )}
 
-                    <div className={styles.position}>
-                        <div className={styles.image}>
-                            <img src='./1.jpg' alt=''/>
+                            <div className={styles.priceAndButton}>
+                                <p>Price: {Math.floor(Math.random() * 50) * 1000 + 5000}</p>
+                                <button className={styles.addButton}>Add</button>
+                            </div>
                         </div>
-                        <div className={styles.info}>
-                            <h3>Name</h3>
-                            <p>Price</p>
-                            <button>Add</button>
-                        </div>
-                    </div>
 
-                    <div className={styles.position}>
-                        <div className={styles.image}>
-                            <img src='./1.jpg' alt=''/>
-                        </div>
-                        <div className={styles.info}>
-                            <h3>Name</h3>
-                            <p>Price</p>
-                            <button>Add</button>
-                        </div>
-                    </div>
-
-                    <div className={styles.position}>
-                        <div className={styles.image}>
-                            <img src='./1.jpg' alt=''/>
-                        </div>
-                        <div className={styles.info}>
-                            <h3>Name</h3>
-                            <p>Price</p>
-                            <button>Add</button>
-                        </div>
-                    </div>
-
-                    <div className={styles.position}>
-                        <div className={styles.image}>
-                            <img src='./1.jpg' alt=''/>
-                        </div>
-                        <div className={styles.info}>
-                            <h3>Name</h3>
-                            <p>Price</p>
-                            <button>Add</button>
-                        </div>
                     </div>
 
                 </div>
