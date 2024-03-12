@@ -1,34 +1,40 @@
 import axios from 'axios';
 
-export interface Photo {
-    id: number;
-    photoId: number;
-    url: string;
-}
-
-export interface Product{
+export interface Product {
     id: number;
     name: string;
-    price: string;
+    price: number;
     description: string;
-    type: string;
-    country: string;
-    color: string;
-    brand: string;
-    visibility: boolean;
-    photos: Photo[];
 }
 
-
-const fetchData = async (): Promise<Product[]> => {
+export const fetchData = async (): Promise<Product[]> => {
     try {
-        const response = await axios.get('https://spo.ultrapivomode.space/api/product/getAll');
-        const products: Product[] = response.data; // Типизация данных как массив продуктов
-        return products; // Возвращаем данные для дальнейшего использования
+        const response = await axios.get('https://your-api-url/products'); // Замените 'https://your-api-url/products' на реальный URL вашего API
+        return response.data; // Возвращаем данные о продуктах из ответа
     } catch (error) {
         console.error('Ошибка при получении данных:', error);
         return []; // Возвращаем пустой массив в случае ошибки
     }
 };
 
-export { fetchData };
+
+
+
+
+
+// export interface Product {
+//     id: number;
+//     name: string;
+//     price: number;
+//     description: string;
+// }
+//
+// const fetchData = async (): Promise<Product[]> => {
+//     try {
+//         const response = await axios.get('https://your-api-url/products'); // Замените 'https://your-api-url/products' на реальный URL вашего API
+//         return response.data; // Возвращаем данные о продуктах из ответа
+//     } catch (error) {
+//         console.error('Ошибка при получении данных:', error);
+//         return []; // Возвращаем пустой массив в случае ошибки
+//     }
+// };

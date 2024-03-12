@@ -4,19 +4,19 @@ import styles from './Catalog.module.css';
 import { fetchData, Product } from "./CatalogData";
 
 const Catalog: React.FC = () => {
-    const [data, setData] = useState<Product[]>([]); // Хранение данных о продуктах
+    const [products, setProducts] = useState<Product[]>([]);
 
     useEffect(() => {
-        const fetchDataFromApi = async () => {
+        const fetchProductsFromAPI = async () => {
             try {
-                const result = await fetchData(); // Получение данных с помощью функции fetchData из CatalogData.ts
-                setData(result); // Установка полученных данных в состояние
+                const productsData = await fetchData(); // Получение данных о продуктах
+                setProducts(productsData); // Установка полученных данных в состояние
             } catch (error) {
                 console.error('Ошибка при получении данных:', error);
             }
         };
 
-        fetchDataFromApi(); // Вызов функции для получения данных при загрузке компонента
+        fetchProductsFromAPI(); // Вызов функции для получения данных при загрузке компонента
 
     }, []);
 
@@ -91,15 +91,10 @@ const Catalog: React.FC = () => {
                         </Link>
 
                         <div className={styles.info}>
-                            {data ? (
-                                <div>
-                                    {data.map((Product, index) => (
-                                        <h3 key={index}>{Product.name}</h3>
-                                    ))}
-                                </div>
-                            ) : (
-                                <div>Loading...</div>
-                            )}
+                                {products.map((product) => (
+                                        <h3 key={product.id}>{product.name}</h3>
+                                ))}
+
                         </div>
                     </div>
 
@@ -108,15 +103,10 @@ const Catalog: React.FC = () => {
                             <img src={'./1.jpg'} alt=''/>
                         </div>
                         <div className={styles.info}>
-                            {data ? (
-                                <div>
-                                    {data.map((userData, index) => (
-                                        <h3 key={index}>{userData.name}</h3>
-                                    ))}
-                                </div>
-                            ) : (
-                                <div>Loading...</div>
-                            )}
+                            {products.map((product) => (
+                                <h3 key={product.id}>{product.name}</h3>
+                            ))}
+
                         </div>
                     </div>
 
@@ -125,15 +115,10 @@ const Catalog: React.FC = () => {
                             <img src={'./1.jpg'} alt=''/>
                         </div>
                         <div className={styles.info}>
-                            {data ? (
-                                <div>
-                                    {data.map((userData, index) => (
-                                        <h3 key={index}>{userData.name}</h3>
-                                    ))}
-                                </div>
-                            ) : (
-                                <div>Loading...</div>
-                            )}
+                            {products.map((product) => (
+                                <h3 key={product.id}>{product.name}</h3>
+                            ))}
+
                         </div>
                     </div>
                     <div className={styles.position}>
@@ -141,15 +126,10 @@ const Catalog: React.FC = () => {
                             <img src={'./1.jpg'} alt=''/>
                         </div>
                         <div className={styles.info}>
-                            {data ? (
-                                <div>
-                                    {data.map((userData, index) => (
-                                        <h3 key={index}>{userData.name}</h3>
-                                    ))}
-                                </div>
-                            ) : (
-                                <div>Loading...</div>
-                            )}
+                            {products.map((product) => (
+                                <h3 key={product.id}>{product.name}</h3>
+                            ))}
+
                         </div>
                     </div>
 
