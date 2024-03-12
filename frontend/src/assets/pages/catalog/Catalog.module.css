@@ -130,9 +130,8 @@
     width: fit-content;
     text-align: left;
     margin-top: 90px;
-    border-right:solid 1px gray;
     flex-direction: column;
-
+    border-right:solid 1px gray;
 }
 
 .filters li{
@@ -148,34 +147,27 @@
 }
 
 /*Карточка товара*/
-.cards{
+.productCardContainer{
     display: flex;
-    margin: 90px 0 0 200px;
     flex-wrap: wrap;
+    justify-content: center;
+    padding-top: 90px;
 }
 
-.position button{
-
+.productCard{
+    width: 300px;
+    height: 300px;
+    margin: 0 10px 10px 0;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    padding: 10px;
 }
 
-.position{
-    height: 240px;
-    display: flex;
-    flex-direction: column;
-    margin-right: 75px;
-}
-
-.image{
-    width: 200px;
+.productCard img{
+    width: 100%;
     height: 200px;
-    border: solid 1px gray;
+    object-fit: cover
 }
-
-.details{
-    display: flex;
-    flex-direction: row;
-}
-
 
 @media screen and (max-width: 900px) {
     .navbar {
@@ -226,15 +218,13 @@
         padding-right: 20px; /* Увеличиваем отступ справа для фильтров */
     }
 
-    .cards {
-        margin-left: 20px; /* Отступ слева для карточек товара */
-        margin-right: 20px; /* Уменьшаем отступ справа для карточек товара */
-        flex: 1; /* Расширяем карточки товара, чтобы занять доступное пространство */
+    .productCardContainer{
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        padding-top: 20px;
     }
 
-    .position {
-        margin-right: 20px; /* Уменьшаем правый отступ для позиции товара */
-    }
 }
 
 

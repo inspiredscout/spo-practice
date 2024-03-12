@@ -82,21 +82,14 @@ const Catalog: React.FC = () => {
                     </ul>
                 </div>
 
-                <div style={{display: 'flex', flexWrap: 'wrap'}}>
+                <div className={styles.productCardContainer}>
                     {products.map((product) => {
                         const randomIndex = getRandomIndex();
                         const randomPhoto = product.photos[randomIndex];
 
                         return (
-                            <div key={product.id} style={{
-                                width: '300px',
-                                margin: '10px',
-                                border: '1px solid #ccc',
-                                borderRadius: '5px',
-                                padding: '10px'
-                            }}>
-                                <img src={randomPhoto.url} alt={product.name}
-                                     style={{width: '100%', height: '200px', objectFit: 'cover'}}/>
+                            <div key={product.id} className={styles.productCard}>
+                                <img src={randomPhoto.url} alt={product.name}/>
                                 <h3>{product.name}</h3>
                                 <p>Price: ${product.price}</p>
                             </div>
