@@ -208,3 +208,87 @@
     }
 }
 
+/* Адаптивный дизайн на мобилку (все в ахуях) */
+
+/* Шрифт */
+@media screen and (max-width: 900px) {
+    .info h1 {
+        font-size: 30px;
+    }
+
+    .info p {
+        font-size: 20px;
+    }
+
+    .workclock h1 {
+        font-size: 30px;
+    }
+
+    .workclock p {
+        font-size: 20px;
+    }
+
+    .workclockinfo h1 {
+        font-size: 20px;
+    }
+
+    .workclockinfo p {
+        font-size: 15px;
+    }
+}
+
+/* Хедер */
+@media screen and (max-width: 900px) {
+    .navbar {
+        flex-direction: column; /* Добавляем столбцовую ориентацию для элементов внутри navbar */
+    }
+
+    .conteiner {
+        width: 100%; /* Занимаем всю ширину экрана */
+        text-align: center; /* Выравниваем содержимое по центру */
+        padding-top: 40px; /* Добавляем отступ сверху */
+    }
+
+    .conteiner ul {
+        display: flex;
+        justify-content: center;
+        padding-top: 20px;
+    }
+
+    .conteiner li {
+        border-radius: 30px;
+        font-size: 15px;
+        width: 100px;
+        height: 35px;
+    }
+
+    .contact {
+        position: absolute;
+        top: 20px; /* Располагаем блок контактов вверху */
+        left: 50%;
+        transform: translateX(-50%);
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        padding: 10px; /* Уменьшаем отступы */
+        border-radius: 10px;
+        width: calc(100% - 20px); /* Учитываем отступы */
+    }
+
+    .social {
+        display: flex;
+        justify-content: center; /* Выравниваем элементы по центру */
+        width: 100%;
+    }
+
+    .social img {
+        width: 20px; /* Уменьшаем размер иконок */
+    }
+
+    .phone {
+        display: none;
+    }
+}
+
+
+
