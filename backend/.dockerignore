@@ -5,3 +5,4 @@ pnpm-lock.yaml
 .gitignore
 .env.template
 docker-compose.yaml
+/docs
