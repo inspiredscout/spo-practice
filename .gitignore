@@ -4,6 +4,10 @@
 frontend/dist
 /backend/prisma/migrations
 /data
+frontend/yarn.lock
+frontend/pnpm-lock.yaml
+frontend/package-lock.json
 /backend/dist
 /backend/docs/swagger.json
 /static
+
