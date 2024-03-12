@@ -169,6 +169,31 @@
     object-fit: cover
 }
 
+.readMore{
+    display: flex;
+    justify-content: flex-end;
+}
+
+.readMore li{
+    background-color: #0e4b78;
+    border-radius: 30px;
+    font-size: 20px;
+    width: 125px;
+    height: 35px;
+    display: flex;
+    list-style-type: none;
+    justify-content: center;
+    align-items: center;
+    color: white;
+    text-decoration: none;
+    cursor: pointer;
+    transition: background-color 0.3s
+}
+
+.readMore li:hover{
+    background-color: #0b3e64;
+}
+
 @media screen and (max-width: 900px) {
     .navbar {
         height: auto; /* Автоматическая высота шапки */
