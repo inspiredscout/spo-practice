@@ -1,8 +1,8 @@
 /node_modules
-/prisma/migrations
 README.md 
 package-lock.json
 pnpm-lock.yaml
 .gitignore
 .env.template
 docker-compose.yaml
+/docs
