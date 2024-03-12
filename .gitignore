@@ -4,6 +4,6 @@ backend/.env
 frontend/dist
 /backend/prisma/migrations
 /data
-yarn.lock
-pnpm-lock.yaml
-package-lock.json
+frontend/yarn.lock
+frontend/pnpm-lock.yaml
+frontend/package-lock.json
