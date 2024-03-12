@@ -83,8 +83,6 @@ const Catalog: React.FC = () => {
                 </div>
 
                 <div className={styles.cards}>
-
-
                     <div className={styles.position}>
                         <Link to='/Catalog/info'>
                             <div className={styles.image}>
