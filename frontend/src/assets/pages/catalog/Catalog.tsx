@@ -1,23 +1,22 @@
 import React, { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 import styles from './Catalog.module.css';
-import { fetchData, Product } from "./CatalogData";
+import axios from 'axios';
 
 const Catalog: React.FC = () => {
-    const [products, setProducts] = useState<Product[]>([]);
+    const [products, setProducts] = useState<{ id: number, name: string }[]>([]);
 
     useEffect(() => {
-        const fetchProductsFromAPI = async () => {
+        const fetchData = async () => {
             try {
-                const productsData = await fetchData(); // Получение данных о продуктах
-                setProducts(productsData); // Установка полученных данных в состояние
+                const response = await axios.get('https://spo.ultrapivomode.space/api/product/getAll?limit10');
+                setProducts(response.data.allProduct);
             } catch (error) {
-                console.error('Ошибка при получении данных:', error);
+                console.error('Error fetching products:', error);
             }
         };
 
-        fetchProductsFromAPI(); // Вызов функции для получения данных при загрузке компонента
-
+        fetchData();
     }, []);
 
     return (
@@ -91,9 +90,9 @@ const Catalog: React.FC = () => {
                         </Link>
 
                         <div className={styles.info}>
-                                {products.map((product) => (
-                                        <h3 key={product.id}>{product.name}</h3>
-                                ))}
+                            {products.map((product) => (
+                                <h3 key={product.id}>{product.name}</h3>
+                            ))}
 
                         </div>
                     </div>
