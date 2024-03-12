@@ -3,18 +3,19 @@ import { Link } from 'react-router-dom';
 import styles from './Catalog.module.css';
 import axios from 'axios';
 
+export const getRandomIndex = () => Math.floor(Math.random() * 3);
 const Catalog: React.FC = () => {
-    const [products, setProducts] = useState<{ id: number, name: string }[]>([]);
-
+    const [products, setProducts] = useState<{ id: number, name: string, price: string, photos: { id: number, photoId: number, url: string }[]}[]>([]);
     useEffect(() => {
         const fetchData = async () => {
             try {
-                const response = await axios.get('https://spo.ultrapivomode.space/api/product/getAll?limit10');
+                const response = await axios.get('https://spo.ultrapivomode.space/api/product/getAll');
                 setProducts(response.data.allProduct);
             } catch (error) {
                 console.error('Error fetching products:', error);
             }
         };
+
 
         fetchData();
     }, []);
@@ -81,98 +82,33 @@ const Catalog: React.FC = () => {
                     </ul>
                 </div>
 
-                <div className={styles.cards}>
-                    <div className={styles.position}>
-                        <Link to='/Catalog/info'>
-                            <div className={styles.image}>
-                                <img src={'./1.jpg'} alt=''/>
+                <div style={{display: 'flex', flexWrap: 'wrap'}}>
+                    {products.map((product) => {
+                        const randomIndex = getRandomIndex();
+                        const randomPhoto = product.photos[randomIndex];
+
+                        return (
+                            <div key={product.id} style={{
+                                width: '300px',
+                                margin: '10px',
+                                border: '1px solid #ccc',
+                                borderRadius: '5px',
+                                padding: '10px'
+                            }}>
+                                <img src={randomPhoto.url} alt={product.name}
+                                     style={{width: '100%', height: '200px', objectFit: 'cover'}}/>
+                                <h3>{product.name}</h3>
+                                <p>Price: ${product.price}</p>
                             </div>
-                        </Link>
-
-                        <div className={styles.info}>
-                            {products.map((product) => (
-                                <h3 key={product.id}>{product.name}</h3>
-                            ))}
-
-                        </div>
-                    </div>
-
-                    <div className={styles.position}>
-                        <div className={styles.image}>
-                            <img src={'./1.jpg'} alt=''/>
-                        </div>
-                        <div className={styles.info}>
-                            {products.map((product) => (
-                                <h3 key={product.id}>{product.name}</h3>
-                            ))}
-
-                        </div>
-                    </div>
-
-                    <div className={styles.position}>
-                        <div className={styles.image}>
-                            <img src={'./1.jpg'} alt=''/>
-                        </div>
-                        <div className={styles.info}>
-                            {products.map((product) => (
-                                <h3 key={product.id}>{product.name}</h3>
-                            ))}
-
-                        </div>
-                    </div>
-                    <div className={styles.position}>
-                        <div className={styles.image}>
-                            <img src={'./1.jpg'} alt=''/>
-                        </div>
-                        <div className={styles.info}>
-                            {products.map((product) => (
-                                <h3 key={product.id}>{product.name}</h3>
-                            ))}
-
-                        </div>
-                    </div>
-
-                    <div className={styles.position}>
-                        <div className={styles.image}>
-                            <img src={'./1.jpg'} alt=''/>
-                        </div>
-                        <div className={styles.info}>
-                            <h3>Name</h3>
-                            <p>Price</p>
-                            <button>Add</button>
-                        </div>
-                    </div>
-
-                    <div className={styles.position}>
-                        <div className={styles.image}>
-                            <img src={'./1.jpg'} alt=''/>
-                        </div>
-
-                    </div>
-                    <div className={styles.position}>
-                        <div className={styles.image}>
-                            <img src={'./1.jpg'} alt=''/>
-                        </div>
-                        <div className={styles.info}>
-                            <h3>Name</h3>
-                            <p>Price</p>
-                            <button>Add</button>
-                        </div>
-                    </div>
-
-                    <div className={styles.position}>
-                        <div className={styles.image}>
-                            <img src={'./1.jpg'} alt=''/>
-                        </div>
-
-                    </div>
-
+                        );
+                    })}
                 </div>
 
 
             </div>
         </main>
-    );
+    )
+        ;
 };
 
 export default Catalog;
