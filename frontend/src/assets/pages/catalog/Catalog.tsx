@@ -88,10 +88,14 @@ const Catalog: React.FC = () => {
                         const randomPhoto = product.photos[randomIndex];
 
                         return (
-                            <div key={product.id} className={styles.productCard}>
-                                <img src={randomPhoto.url} alt={product.name}/>
-                                <h3>{product.name}</h3>
-                                <p>Price: ${product.price}</p>
+                            <div key={product.id} className={styles.link}>
+                                <Link to={`/Catalog/info/${product.id}`}>
+                                    <div className={styles.productCard}>
+                                        <img src={randomPhoto.url} alt={product.name}/>
+                                        <h3>{product.name}</h3>
+                                        <p>Price: ${product.price}</p>
+                                    </div>
+                                </Link>
                             </div>
                         );
                     })}
@@ -100,8 +104,7 @@ const Catalog: React.FC = () => {
 
             </div>
         </main>
-    )
-        ;
+    );
 };
 
 export default Catalog;

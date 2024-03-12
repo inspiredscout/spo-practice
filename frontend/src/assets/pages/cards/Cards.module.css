@@ -12,51 +12,55 @@
     background-size: cover;
     background-position: top;
     width: 100%;
-    height: 250px;
+    justify-content: space-between;
+    margin: 0;
+    background-size: cover;
 }
 
-.conteiner{
-    flex-direction: column;
-    justify-content: center;
-    text-align: center;
-    height: fit-content;
-    width: 342px;
-    height: 294px;
-}
-
-.navbar img{
-    display: flex;
-    width: 236px;
+.logo img{
     height: 89px;
     height: fit-content;
-    margin: 77px 0 77px 240px;
-}
-
-.conteiner ul{
-    margin-top: 30px;
-    display: flex;
-    width: 176px;
-    height: 45px;
-    height:fit-content;
 
 }
 
-.conteiner li{
-    background-color: #0e4b78;
-    border-radius: 30px;
-    font-size: 25px;
-    width: 176px;
-    height: 45px;
-    display: flex;
-    list-style-type: none;
-    justify-content: center;
+.logo{
+    justify-content: flex-end;
     align-items: center;
-    color: white;
-    text-decoration: none;
-    cursor: pointer;
-    transition: background-color 0.3s
+    display: flex;
+    width: 600px;
 }
 
-.conteiner li:hover{
-    background-color: #0b3e64;
+.rightpanel{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+
+}
+
+.contact{
+    display: flex;
+    flex-direction: column;
+    padding: 25px;
+    color: white;
+    align-items: flex-end;
+    height: fit-content;
+}
+
+.social img{
+    margin: 0 10px;
+}
+
+.phone{
+    display: flex;
+}
+
+.phone img{
+    width: 25px;
+    height: 25px;
+    margin: 11.5px -12px;
+}
+
+.contact p{
+    font-size: 18px;
+    margin: 12.5px 12.5px;
 }
