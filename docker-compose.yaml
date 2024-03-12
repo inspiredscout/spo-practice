@@ -21,6 +21,8 @@ services:
     restart: always
     ports:
       - "${API_PORT}:${API_PORT}"
+    volumes:
+      - ./backend-static:/govno
     build:
       context: ./backend
       dockerfile: Dockerfile
