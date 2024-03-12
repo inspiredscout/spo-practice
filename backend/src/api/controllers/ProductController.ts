@@ -1,5 +1,5 @@
 import { db } from '../../db'
-import {Route, Post, Get, Put, Controller, Tags, Body, Queries, Path} from 'tsoa';
+import {Route, Post, Get, Put, Controller, Tags, Body, Queries, Path, Query} from 'tsoa';
 import Product from '../../models/Product';
 import getProductQuery from '../../models/getProductQuery';
 
@@ -46,10 +46,11 @@ export default class ProductController extends Controller{
   @Get("/")
   async getProduct(@Queries() rqst: getProductQuery) {
     try{
+        const zaebalo = rqst.id !== undefined ? parseInt(rqst.id.toString(), 10) : undefined;
     const product = await db?.products.findMany({
         where: {
             OR: [
-            {id : rqst.id},
+            {id : zaebalo},
             {name : rqst.name},
             {price : rqst.price},
             {description : rqst.description},

@@ -65,7 +65,7 @@ router.get('/api/product/getAll', async (req: Request, res: Response) => {
 
 router.get('/api/product', async (req: Request, res: Response) => {
     const controller = new ProductController()
-    let request = req.body
+    let request = req.query
     const response = await controller.getProduct(request)
     if (!response.success && response?.status) return res.status(response?.status).json(response)
     return res.json(response)
