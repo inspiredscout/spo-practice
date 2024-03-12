@@ -1,4 +1,4 @@
-/* Общие стили */
+/* Общие стили ббебебебеббебе */
 @import url('https://fonts.googleapis.com/css2?family=Jura:wght@300..700&display=swap');
 
 * {
@@ -86,7 +86,7 @@
     color: white;
     text-decoration: none;
     cursor: pointer;
-    transition: background-color 0.3s
+    transition: background-color 0.3s;
 }
 
 .button li:hover {
@@ -121,11 +121,11 @@
 /* Карточка товара */
 .cards {
     display: flex;
-    margin: 90px 0 0 200px;
+    margin: 40px 0 0 200px; /* Увеличен вертикальный отступ между карточками */
     flex-wrap: wrap;
 }
 
-.position{
+.position {
     height: 240px;
     display: flex;
     flex-direction: column;
@@ -138,7 +138,7 @@
     border: solid 1px gray;
 }
 
-.details{
+.details {
     display: flex;
     flex-direction: row;
 }
@@ -150,7 +150,6 @@
 .counter {
     display: flex;
     align-items: center;
-
 }
 
 .counterButton {
@@ -170,4 +169,63 @@
 
 .counterValue {
     font-size: 18px;
+}
+
+/* Адаптивный дизайн */
+@media screen and (max-width: 900px) {
+    .navbar {
+        height: auto; /* Автоматическая высота шапки */
+        flex-direction: column; /* Расположение элементов в колонку */
+        align-items: center; /* Выравнивание по центру */
+    }
+
+    .logo {
+        margin-bottom: 20px; /* Отступ между логотипом и другими элементами */
+        display: flex; /* Размещение элементов в строку */
+        justify-content: center; /* Выравнивание лого по центру */
+        width: 50%; /* Уменьшение ширины логотипа */
+    }
+
+    .logo img {
+        width: 100%; /* Уменьшение размера логотипа */
+    }
+
+    .rightpanel {
+        display: flex; /* Возвращаем отображение блока справа */
+        justify-content: space-between; /* Распределение элементов по горизонтали */
+        align-items: center; /* Выравнивание по центру */
+        width: 100%; /* Ширина 100% */
+        padding: 10px 20px; /* Отступы внутри блока */
+    }
+
+    .contact {
+        display: none; /* Скрываем контактные данные */
+    }
+
+    .button {
+        display: flex; /* Возвращаем отображение кнопок */
+    }
+
+    .catalog {
+        display: flex; /* Возвращаем обратно flex-расположение */
+        align-items: flex-start; /* Выравнивание элементов по верхнему краю */
+        margin-top: 20px; /* Отступ сверху */
+    }
+
+    .filters {
+        margin-top: 20px; /* Уменьшаем отступ сверху для фильтров */
+        margin-bottom: 20px; /* Уменьшаем отступ снизу для фильтров */
+        border-right: solid 1px gray; /* Возвращаем обратно правую границу */
+        padding-right: 20px; /* Увеличиваем отступ справа для фильтров */
+    }
+
+    .cards {
+        margin-left: 20px; /* Отступ слева для карточек товара */
+        margin-right: 20px; /* Уменьшаем отступ справа для карточек товара */
+        flex: 1; /* Расширяем карточки товара, чтобы занять доступное пространство */
+    }
+
+    .position {
+        margin-right: 20px; /* Уменьшаем правый отступ для позиции товара */
+    }
 }
