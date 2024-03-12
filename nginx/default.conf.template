@@ -12,7 +12,7 @@ server {
         index index.html;
     }
     location ^~ /api/ {
-        proxy_pass http://backend:3000/api/;
+        proxy_pass http://backend:${API_PORT}/api/;
         proxy_set_header Host ${DOLLAR}host;
         proxy_set_header X-Forwarded-Proto ${DOLLAR}scheme;
         proxy_set_header X-Forwarded-Port ${DOLLAR}server_port;

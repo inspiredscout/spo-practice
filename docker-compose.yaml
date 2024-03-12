@@ -22,7 +22,7 @@ services:
     ports:
       - "${API_PORT}:${API_PORT}"
     volumes:
-      - ./backend-static:/govno
+      - my_database_volume:/var/lib/postgresql/data
     build:
       context: ./backend
       dockerfile: Dockerfile
@@ -55,6 +55,8 @@ services:
     networks:
       - nginx-network
       - default
+volumes:
+  my_database_volume:
 networks:
   nginx-network:
     external: true
