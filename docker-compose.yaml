@@ -19,6 +19,7 @@ services:
 
   backend:
     restart: always
+    command: sh -c "npx prisma migrate dev && npm start"
     ports:
       - "${API_PORT}:${API_PORT}"
     volumes:
@@ -33,7 +34,6 @@ services:
         condition: service_healthy
   #только сбилдит
   frontend:
-    restart: always
     build:
       context: ./frontend
       dockerfile: Dockerfile
