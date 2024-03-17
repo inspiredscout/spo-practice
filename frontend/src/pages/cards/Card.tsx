@@ -10,7 +10,7 @@ function Card() {
     useEffect(() => {
         const fetchProduct = async () => {
             try {
-                const response = await axios.get(`https://spo.ultrapivomode.space/api/product?id=${id}`);
+                const response = await axios.get(`${import.meta.env.VITE_SERVER_PATH}/product?id=${id}`);
                 setProduct(response.data);
             } catch (error) {
                 console.error('Error fetching product:', error);

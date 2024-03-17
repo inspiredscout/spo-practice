@@ -5,11 +5,16 @@ import axios from 'axios';
 
 export const getRandomIndex = () => Math.floor(Math.random() * 3);
 const Catalog: React.FC = () => {
-    const [products, setProducts] = useState<{ id: number, name: string, price: string, photos: { id: number, photoId: number, url: string }[]}[]>([]);
+    const [products, setProducts] = useState<{
+        id: number,
+        name: string,
+        price: string,
+        photos: { id: number, photoId: number, url: string }[]
+    }[]>([]);
     useEffect(() => {
         const fetchData = async () => {
             try {
-                const response = await axios.get('https://spo.ultrapivomode.space/api/product/getAll');
+                const response = await axios.get(`${import.meta.env.VITE_SERVER_PATH}/product/getAll`);
                 setProducts(response.data.allProduct);
             } catch (error) {
                 console.error('Error fetching products:', error);
@@ -83,7 +88,7 @@ const Catalog: React.FC = () => {
                 </div>
 
                 <div className={styles.productCardContainer}>
-                    {products.map((product) => {
+                    {products && products.map((product) => {
                         const randomIndex = getRandomIndex();
                         const randomPhoto = product.photos[randomIndex];
 
@@ -95,7 +100,9 @@ const Catalog: React.FC = () => {
                                     <p>Price: ${product.price}</p>
                                     <div className={styles.readMore}>
                                         <Link to={`/Catalog/info/${product.id}`} style={{textDecoration: 'none'}}>
-                                            <ul><li>Read more</li> </ul>
+                                            <ul>
+                                                <li>Read more</li>
+                                            </ul>
                                         </Link>
                                     </div>
                                 </div>
@@ -103,8 +110,6 @@ const Catalog: React.FC = () => {
                         );
                     })}
                 </div>
-
-
             </div>
         </main>
     );

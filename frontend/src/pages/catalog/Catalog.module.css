@@ -8,7 +8,7 @@
 /*Шапка страницы каталог*/
 .navbar{
     display: flex;
-    background-image: url("../../../../public/catalog-header.png");
+    background-image: url("../../../public/catalog-header.png");
     background-size: cover;
     background-position: top;
     width: 100%;
